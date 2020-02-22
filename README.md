@@ -5,7 +5,7 @@ login.html is the login form and index.html is the dashboard.
 
 How to contribute to this repository (strictly follow this rules )
 
-1. Fork this repository.
+1. Fork this repository (See youtube that how to fork any other repository).
 
 2. Clone the forked repository.
 
