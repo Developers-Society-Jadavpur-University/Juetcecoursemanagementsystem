@@ -9,7 +9,7 @@ How to contribute to this repository (strictly follow this rules )
 
 2. Clone the forked repository.
 
-git clone https://github.com/<your-github-username>/Juetcecoursemanagementsystem
+git clone https://github.com/yourgithubusername/Juetcecoursemanagementsystem
 
 3. Navigate to the project directory.
 
