@@ -19,7 +19,13 @@ details,
 figcaption,
 figure,
 footer,
-header,
+header{
+  height: 20%;
+  background: #006699;
+  border-radius: 10px;
+  border: 1px solid #005285;
+  margin: 5px;
+}
 hgroup,
 main,
 nav,
