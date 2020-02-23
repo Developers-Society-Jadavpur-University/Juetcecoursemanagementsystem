@@ -20,6 +20,6 @@ How to contribute to this repository (strictly follow this rules )
     7. Push your local branch to the remote repository.
     git push -u origin <your_branch_name>
 
-    8.Create a Push Request!
+    8.Create a Pull Request!
 
     Wohoo!! Congratulations! Sit and relax, you've made your contribution to Juetcecoursemanagementsystem Project.
