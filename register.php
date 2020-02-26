@@ -29,7 +29,7 @@
                         <h3 class="panel-title">Register Here</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="./register_phpfiles/fetchstud_details.php" method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="12 digit JU Roll no" name="rollno" type="text" autofocus>
@@ -37,7 +37,7 @@
                                 
                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="#" class="btn btn-lg btn-success btn-block">Submit</a>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Submit</button>
                                 
                             </fieldset>
                         </form>
