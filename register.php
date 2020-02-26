@@ -54,6 +54,7 @@
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/sb-admin.js"></script>
+    <!--Include scripts here-->
 
 </body>
 
