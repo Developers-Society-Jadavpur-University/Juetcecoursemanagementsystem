@@ -1,8 +1,11 @@
 
 <?php
-
+include('../regiser_phpfiles/registerstud.php');
 include('../config_phpfiles/config.php');
+session_start();
 $rollno=$_POST["rollno"];
+$_SESSION["rollno"] = $rollno;
+
 $sql ="SELECT roll_no, Full_name, Course_code,course_name,department,faculty FROM student_userdata WHERE roll_no=$rollno";
 
 $result = $conn->query($sql);
@@ -22,14 +25,14 @@ if ($result->num_rows > 0)
     $show_coursename= $row["course_name"];
     $show_dept= $row["department"];
     $show_faculty= $row["faculty"];
-    
+    $_SESSION["fullname"] = $row["Full_name"];
 }
 
 
 
  } else 
 {
-  echo "0 result found";
+  
   $result=0;
   
     
@@ -67,6 +70,30 @@ $conn->close();
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="../css/sb-admin.css" rel="stylesheet">
+    <!-- BootstrapValidator CSS -->
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+    <!-- BootstrapValidator JS -->
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+  
+  <!-- Animated Loading Icon -->
+  <style type="text/css">
+  .glyphicon-refresh-animate {
+      -animation: spin .7s infinite linear;
+      -webkit-animation: spin2 .7s infinite linear;
+  }
+
+  @-webkit-keyframes spin2 {
+      from { -webkit-transform: rotate(0deg);}
+      to { -webkit-transform: rotate(360deg);}
+  }
+
+  @keyframes spin {
+      from { transform: scale(1) rotate(0deg);}
+      to { transform: scale(1) rotate(360deg);}
+  }
+  </style>
+    
+    
     <style>
   #student_notregistered_div{
     <?php
@@ -108,7 +135,9 @@ $conn->close();
                         <h3 class="panel-title">Check your basic details and Proceed</h3>
                     </div>
                     <div class="panel-body" >
-                        <form role="form" action="./registerstud.php" method="POST">
+                        
+                        <form role="form" action="./registerstud.php" method="POST" enctype="multipart/form-data">
+                        
                             <fieldset>
                                 
                             <p> Roll No : <?=$show_rollno?></p>    
@@ -119,19 +148,38 @@ $conn->close();
 
                             <h4>If the above details are correct then enter the following and press the click to Register button otherwise contact system administrator.</h4>
                             
+                            
                             <div class="form-group">
                                     <input class="form-control" placeholder="Enter your mobile number" name="mobno" type="text" autofocus>
                             </div>
                             <div class="form-group">
                                     <input class="form-control" placeholder="Enter your email" name="email" type="email" autofocus>
+                            
+                                    <sub class="text-danger">
+                                     <?php
+                                         if (isset($_SESSION['ERRORS']['emailerror']))
+                                             echo $_SESSION['ERRORS']['emailerror'];
+
+                                       ?>
+                                     </sub>
                             </div>
                             <div class="form-group">
-                                    <input class="form-control" placeholder="Enter password" name="password" type="password" autofocus>
+                                    <input class="form-control" placeholder="Enter password" name="password" id="password" type="password" autofocus>
                             </div>
+                            <div class="form-group">
+                                    <input class="form-control" placeholder="Confirm Password" name="confirmpassword" id="confirmpassword" type="password" autofocus>
+                                    <sub class="text-danger">
+                        <?php
+                            if (isset($_SESSION['ERRORS']['passworderror']))
+                                echo $_SESSION['ERRORS']['passworderror'];
+
+                        ?>
+                    </sub>
+                                </div>
                             
                            
                             <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-success btn-block">Click to Register</button>
+                                <button type="submit" class="btn btn-lg btn-success btn-block" name="reg_user">Click to Register</button>
                                 
                             </fieldset>
                         </form>
@@ -183,6 +231,8 @@ $conn->close();
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/sb-admin.js"></script>
+    <script defer src="../register_phpfiles/register_js/validation_register.js"></script>
+
 
 </body>
 
