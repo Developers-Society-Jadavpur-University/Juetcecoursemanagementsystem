@@ -26,23 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `auth_tokens`
 --
 
-CREATE TABLE `auth_tokens` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `auth_type` varchar(255) NOT NULL,
-  `selector` text NOT NULL,
-  `token` longtext NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `expires_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Dumping data for table `auth_tokens`
 --
 
-INSERT INTO `auth_tokens` (`id`, `user_email`, `auth_type`, `selector`, `token`, `created_at`, `expires_at`) VALUES
-(65, 'ayanbiswas184@gmail.com', 'password_reset', 'd5e7c3ee59c9cb44', '$2y$10$WD1TakwZDhhyUasycK7aM.6bg13Qq2Uc/XlyohgpLIAh70xMetmVq', '2020-03-03 15:39:05', '2020-03-03 16:39:05'),
-(73, 'ayanbiswas184@gmail.com', 'account_verify', '81edee3f6c8a5ffc', '$2y$10$7X2DGSRHeAOYEmexP.HG8us/W.wMibh05wTjkB3uw0t.MWBkL1COG', '2020-03-15 08:55:08', '2020-03-15 09:55:08');
 
 -- --------------------------------------------------------
 

@@ -1,6 +1,6 @@
 <?php
 $server = "localhost";
-$username = "root";
+$username = "ayan";
 $password = "AYAN@445bi";
 $database = "coursemanagementsystem";
  

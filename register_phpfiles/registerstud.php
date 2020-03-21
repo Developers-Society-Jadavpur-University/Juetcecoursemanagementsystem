@@ -11,7 +11,7 @@ $errors = array();
 //include('../config_phpfiles/config.php');
 
 
-$db = mysqli_connect('localhost', 'root', 'AYAN@445bi', 'coursemanagementsystem');
+$db = mysqli_connect('localhost', 'ayan', 'AYAN@445bi', 'coursemanagementsystem');
 
 
 // REGISTER USER
@@ -53,11 +53,16 @@ if (isset($_POST['reg_user'])) {
     $session_rollno = $_SESSION["rollno"];
     $session_fullname = $_SESSION["fullname"];  
       $query = "INSERT INTO studusers_logindata (Roll_no,Full_name, mobile_no, email_id,Password_login) 
-  			    VALUES('$session_rollno','$session_fullname','$mobileno', '$email', '$password_input')";
+            VALUES('$session_rollno','$session_fullname','$mobileno', '$email', '$password_input')";
+      $query_1 = "INSERT INTO user_roles (UID_user,ROLE_user, FULL_NAME_user) 
+      VALUES('$session_rollno','STUDENT','$session_fullname')";      
       
     mysqli_query($db, $query);
-  	$_SESSION['username'] = $email;
+    mysqli_query($db, $query_1);
+    
+    
+    $_SESSION['username'] = $email;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: ../dashboard.php');
+  	header('location: ../dashboard_student.php');
   }
 }
