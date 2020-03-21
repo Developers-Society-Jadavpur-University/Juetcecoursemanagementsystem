@@ -55,10 +55,12 @@ if (isset($_POST['reg_user'])) {
       $query = "INSERT INTO studusers_logindata (Roll_no,Full_name, mobile_no, email_id,Password_login) 
             VALUES('$session_rollno','$session_fullname','$mobileno', '$email', '$password_input')";
       $query_1 = "INSERT INTO user_roles (UID_user,ROLE_user, FULL_NAME_user) 
-      VALUES('$session_rollno','STUDENT','$session_fullname')";      
+      VALUES('$session_rollno','STUDENT','$session_fullname')";
+      $query_2 = "UPDATE student_userdata SET reg_status='Y' WHERE roll_no=$session_rollno";      
       
     mysqli_query($db, $query);
     mysqli_query($db, $query_1);
+    mysqli_query($db, $query_2);
     
     
     $_SESSION['username'] = $email;

@@ -6,7 +6,7 @@ session_start();
 $rollno=$_POST["rollno"];
 $_SESSION["rollno"] = $rollno;
 
-$sql ="SELECT roll_no, Full_name, Course_code,course_name,department,faculty FROM student_userdata WHERE roll_no=$rollno";
+$sql ="SELECT roll_no, Full_name, Course_code,course_name,department,faculty,reg_status  FROM student_userdata WHERE roll_no=$rollno";
 
 $result = $conn->query($sql);
 
@@ -14,11 +14,13 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) 
 {
-    // output data of each row
+
+// output data of each row
+
+
     while($row = $result->fetch_assoc()) 
     {
         
-    
     $show_rollno = $row["roll_no"];
     $show_name= $row["Full_name"];
     $coursecode= $row["Course_code"];
@@ -26,11 +28,16 @@ if ($result->num_rows > 0)
     $show_dept= $row["department"];
     $show_faculty= $row["faculty"];
     $_SESSION["fullname"] = $row["Full_name"];
+    $reg_status = $row["reg_status"];
+
+    if($reg_status=="Y")
+    {
+      $gotologin=1;
+
+    }
 }
-
-
-
- } else 
+}
+else 
 {
   
   $result=0;
@@ -109,7 +116,7 @@ $conn->close();
   }
   #student_registered_div{
     <?php
-      if($result==0)
+      if($result==0||$gotologin==1 )
           {
               echo 'display:none';
           }
@@ -117,6 +124,21 @@ $conn->close();
           {
               echo 'display:block';
           }
+    ?>
+  }
+  #student_registered_gotologin_div{
+    <?php
+      if($gotologin==1)
+          {
+              echo 'display:block';
+              
+          }
+          
+       else
+       {
+           echo 'display:none';
+           
+       }   
     ?>
   }
 </style>
@@ -197,7 +219,7 @@ $conn->close();
             <div class="col-md-4 col-md-offset-4" >
                 <div class="login-panel panel panel-default" >
                     <div class="panel-heading">
-                        <h3 class="panel-title">Check your basic details and Proceed</h3>
+                        <h3 class="panel-title">Error !</h3>
                     </div>
                     <div class="panel-body" >
                         <form role="form" action="./registerstud.php" method="POST">
@@ -210,6 +232,33 @@ $conn->close();
                            
                             <!-- Change this to a button or input when using this as a form -->
                                 <a href="../register.php" class="btn btn-lg btn-success btn-block">Try Again</a>
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--If a student is registered already and they will have to login-->
+    <div class="container" id="student_registered_gotologin_div" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" >
+                <div class="login-panel panel panel-default" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Resistration Denied !</h3>
+                    </div>
+                    <div class="panel-body" >
+                        <form role="form" action="./registerstud.php" method="POST">
+                            <fieldset>
+                                
+                            
+                            <h4>You have already registered please login using your credentials</h4>
+                            
+                            
+                           
+                            <!-- Change this to a button or input when using this as a form -->
+                                <a href="../index.php" class="btn btn-lg btn-success btn-block">Go to login</a>
                                 
                             </fieldset>
                         </form>
