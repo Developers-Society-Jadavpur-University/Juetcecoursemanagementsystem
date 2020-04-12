@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>About</title>
 </head>
 <body>
-    <?php
-        require "header.php";
-    ?>
-    <img class="home-img" src="image/jucampus_imgcon.jpg">
+    <?php require "header.php"?>
+    <div class="profile-content">
+        <h4>Welcome to Electronics and Telecommunication Department</h4>
+    </div> 
     <?php
         if(isset($_SESSION['uid'])){
             require "nav-bar.php";
