@@ -16,7 +16,8 @@
             if ($_GET['login'] == 'successful'){
                 echo "<script>window.alert('Login was successful!');</script>";
                 echo"<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
-                $url = "../profile_update.php?StudentName=".$_SESSION['uid'];
+                //$url = "../profile_update.php?StudentName=".$_SESSION['uid'];
+                $url = "../personal_details.php";
                 echo"<a href='".$url."'>Update Details</a>";
             }
         }
@@ -24,7 +25,8 @@
             if ($_GET['signup'] == 'successful'){
                 echo "<script>window.alert('Signup was successful!');</script>";
                 echo"<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
-                $url = "../profile_update.php?StudentName=".$_SESSION['uid'];
+                //$url = "../profile_update.php?StudentName=".$_SESSION['uid'];
+                $url = "../personal_details.php";
                 echo"<a href='".$url."'>Update Details</a>";
             }
         }
