@@ -107,12 +107,12 @@
                         <option value="pg2">PG-II</option>
                     </select><br><br>
                 Stream :<select required name="Stream" id="stream">
-                            <option value="select">SELECT</option>
-                            <option value="cse">COMPUTER SCIENCE ENGINEERING</option>
+                            <!--<option value="select">SELECT</option>
+                            <option value="cse">COMPUTER SCIENCE ENGINEERING</option>-->
                             <option value="etce">ELECTRONICS AND TELECOMMUNICATION ENGINEERING</option>
-                            <option value="ee">ELECTRICAL ENGINEERING</option>
+                            <!--<option value="ee">ELECTRICAL ENGINEERING</option>
                             <option value="iee">INSTRUMENTATION AND ELECTRONICS ENGINEERING</option>
-                            <option value="prode">PRODUCTION ENGINEERING</option>
+                            <option value="prode">PRODUCTION ENGINEERING</option>-->
                         </select><br><br>
                 Gender :
                 Male <input name ="gender" id="male" required type ="radio" value= "Male">
@@ -128,7 +128,7 @@
                     </select><br><br>
                 Wbjee Marks :<br><br>Paper I - &nbsp;<input name="marks1" id="marks1" max= "100" min= "0" required type="number" step="0.01"><br>
                 Paper II - <input name="marks2" id="marks2" max= "100" min= "0" required type="number" step="0.01"><br><br>
-                Studemt's Email Address :<input type="text" id="email" name = "Email" value="<?php echo $email;?>"><br><br>
+                Student's Email Address :<input type="text" id="email" name = "Email" value="<?php echo $email;?>"><br><br>
                 Student's Contact Number :<input type="tel" name="stuContact" id="stuContact" pattern = "\d*" ><br><br>
                 <button class="submit-buttons" type="submit" onclick="return alertMessage();" name ="personal-submit" 
                 style = "background-color : rgb(255, 80, 80);"><b>Submit</b></button>
@@ -238,6 +238,12 @@
                     }                
                 }
                 
+            </script>
+            <script>
+                //Disabling some of the fields to prevent furthur any wrong info by student
+                document.getElementById("stuname").disabled = true;
+                document.getElementById("roll").disabled = true;
+                document.getElementById("email").disabled = true;
             </script>
         </section>
     </div>

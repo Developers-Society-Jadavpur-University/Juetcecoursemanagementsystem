@@ -34,7 +34,7 @@
         }
         else{
             $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
-            
+ 
             $sql = "INSERT INTO users(uname,rno,email,pwd,update_status1,update_status2,update_status3) VALUES('$name','$rollnumber','$email','$hashedPwd','$update_status1','$update_status2','$update_status3')";
             if ($conn->query($sql) === TRUE) {
                 //All data entered to the users table.
