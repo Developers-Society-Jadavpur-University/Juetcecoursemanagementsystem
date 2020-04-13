@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 13, 2020 at 02:58 PM
--- Server version: 8.0.19-0ubuntu0.19.10.3
--- PHP Version: 7.3.11-0ubuntu0.19.10.3
+-- Host: localhost
+-- Generation Time: Apr 13, 2020 at 05:42 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,7 +32,7 @@ CREATE TABLE `addressDetails` (
   `rno` char(12) NOT NULL,
   `permanentAdd` longtext NOT NULL,
   `correspondenceAdd` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `addressDetails`
@@ -64,7 +63,7 @@ CREATE TABLE `parentDetails` (
   `mOccu` text NOT NULL,
   `parentOfficeAdd` longtext NOT NULL,
   `parentOfficeTel` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `parentDetails`
@@ -72,7 +71,7 @@ CREATE TABLE `parentDetails` (
 
 INSERT INTO `parentDetails` (`uname`, `rno`, `fName`, `mName`, `fContact`, `mContact`, `fEmail`, `mEmail`, `fBloodGrp`, `mBloodGrp`, `fOccu`, `mOccu`, `parentOfficeAdd`, `parentOfficeTel`) VALUES
 ('AYAN BISWAS', '001910701012', 'SAMARESH BISWAS', 'SIKHA BISWAS', '9474828561', '9434936752', 'samareshbiswas1967@gmai.com', 'sikhabiswas011@gmail.com', 'B+', 'B+', 'service', 'service', 'SADSFSBG', '8585654525'),
-('Arijit Saha', '001910701019', 'Ajit Kumar Saha', 'Rinku Saha', '7044179173', '9433342923', 'aksaha_66@gmail.com', 'rinkusaha_67@gmail.com', 'B+', 'O+', 'service', 'houseWife', 'Jessore Rd, Dum Dum, Kolkata, West Bengal 700052', '8282205752');
+('Arijit Saha', '001910701019', 'Ajit Kumar Saha', 'Rinku Saha', '9433342923', '7044179173', 'aksaha_66@gmail.com', 'rinkusaha_67@gmail.com', 'O-', 'B+', 'service', 'houseWife', 'Jessore Rd, Dum Dum, Kolkata, West Bengal 700052', '8282205752');
 
 -- --------------------------------------------------------
 
@@ -85,7 +84,7 @@ CREATE TABLE `personalDetails` (
   `rno` char(12) NOT NULL,
   `dob` date NOT NULL,
   `bloodGrp` char(3) NOT NULL,
-  `yJoin` int NOT NULL,
+  `yJoin` int(11) NOT NULL,
   `yStudy` varchar(5) NOT NULL,
   `Stream` text NOT NULL,
   `Gender` tinytext NOT NULL,
@@ -94,7 +93,7 @@ CREATE TABLE `personalDetails` (
   `wbjeePhyChem` decimal(10,2) NOT NULL,
   `stuEmail` text NOT NULL,
   `stuContact` char(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `personalDetails`
@@ -111,11 +110,11 @@ INSERT INTO `personalDetails` (`uname`, `rno`, `dob`, `bloodGrp`, `yJoin`, `yStu
 --
 
 CREATE TABLE `profileimg` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `user_rno` char(12) NOT NULL,
-  `status_name` int NOT NULL,
+  `status_name` int(11) NOT NULL,
   `ext` tinytext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `profileimg`
@@ -134,12 +133,12 @@ INSERT INTO `profileimg` (`id`, `user_rno`, `status_name`, `ext`) VALUES
 --
 
 CREATE TABLE `pwdReset` (
-  `pwdResetId` int NOT NULL,
+  `pwdResetId` int(11) NOT NULL,
   `pwdResetEmail` text NOT NULL,
   `pwdResetSelector` text NOT NULL,
   `pwdResetToken` longtext NOT NULL,
   `pwdResetExpires` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pwdReset`
@@ -155,7 +154,7 @@ INSERT INTO `pwdReset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdR
 --
 
 CREATE TABLE `student_userdata` (
-  `roll_no` int NOT NULL,
+  `roll_no` int(11) NOT NULL,
   `Full_name` varchar(60) NOT NULL,
   `Course_code` varchar(10) NOT NULL,
   `reg_status` varchar(1) NOT NULL DEFAULT 'N',
@@ -183,10 +182,10 @@ CREATE TABLE `users` (
   `rno` char(12) NOT NULL,
   `email` tinytext NOT NULL,
   `pwd` longtext NOT NULL,
-  `update_status1` int NOT NULL,
-  `update_status2` int NOT NULL,
-  `update_status3` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `update_status1` int(11) NOT NULL,
+  `update_status2` int(11) NOT NULL,
+  `update_status3` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -194,6 +193,27 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`uname`, `rno`, `email`, `pwd`, `update_status1`, `update_status2`, `update_status3`) VALUES
 ('Arijit Saha', '001910701019', 'arijitfeb01@gmail.com', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_staff`
+--
+
+CREATE TABLE `users_staff` (
+  `id` int(11) NOT NULL,
+  `uname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `role` varchar(10) NOT NULL,
+  `pwd` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_staff`
+--
+
+INSERT INTO `users_staff` (`id`, `uname`, `email`, `role`, `pwd`) VALUES
+(1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG');
 
 --
 -- Indexes for dumped tables
@@ -242,6 +262,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`rno`);
 
 --
+-- Indexes for table `users_staff`
+--
+ALTER TABLE `users_staff`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -249,13 +275,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `profileimg`
 --
 ALTER TABLE `profileimg`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pwdReset`
 --
 ALTER TABLE `pwdReset`
-  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `pwdResetId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `users_staff`
+--
+ALTER TABLE `users_staff`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
