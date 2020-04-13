@@ -25,6 +25,11 @@
                     echo "<br><br><p>E-mail field cannot remain empty!<p>";
                 }
             }
+            if(isset($_GET['error'])){
+                if ($_GET['error'] == 'emilnotregistered'){
+                    echo "<br><br><p>Your entered email is not registered!<p>";
+                }
+            }
             if(isset($_GET['reset'])){
                 if ($_GET['reset'] == 'success'){
                     echo "<br><br><p>Check your e-mail account<p>";

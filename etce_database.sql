@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 13, 2020 at 04:33 AM
+-- Generation Time: Apr 13, 2020 at 02:58 PM
 -- Server version: 8.0.19-0ubuntu0.19.10.3
 -- PHP Version: 7.3.11-0ubuntu0.19.10.3
 
@@ -146,8 +146,7 @@ CREATE TABLE `pwdReset` (
 --
 
 INSERT INTO `pwdReset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdResetToken`, `pwdResetExpires`) VALUES
-(12, 'arijitfeb01@gmail.com', '768f1fbe69cf8653', '$2y$10$hS6ao46vITWNPq6zS./xYudRGP8N.PhR7rADGCOzGPGrsRoo.tWUm', '1586505389'),
-(13, 'ayanbiswas184@gmail.com', '18c46d7d53a7eba0', '$2y$10$iaiY5HwqOvyoOhYHbntXgu08lKkR5gKJ/6YN64caLVjKiCygXvczm', '1586706147');
+(21, 'arijitfeb01@gmail.com', '83c7b7bf169c26de', '$2y$10$7aAaOFL2Q26NzT9W8sY9j.53tsL.VO5WIUysm5ooVByZD18Kp379y', '1586771868');
 
 -- --------------------------------------------------------
 
@@ -170,7 +169,7 @@ CREATE TABLE `student_userdata` (
 --
 
 INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `Course_code`, `reg_status`, `course_name`, `department`, `faculty`) VALUES
-(1910701012, 'AYAN BISWAS', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+(1910701012, 'AYAN BISWAS', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 (1910701019, 'ARIJIT SAHA', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology');
 
 -- --------------------------------------------------------
@@ -256,7 +255,7 @@ ALTER TABLE `profileimg`
 -- AUTO_INCREMENT for table `pwdReset`
 --
 ALTER TABLE `pwdReset`
-  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
