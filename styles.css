@@ -41,7 +41,7 @@ a:link{
     color :none;
 }
 a:hover{
-    color: rgb(8, 59, 153);
+    color: rgb(2, 11, 29);
     text-decoration: none;
 }
 a:visited{
@@ -163,6 +163,7 @@ section.update-forms{
     width: 90%;
     box-shadow: 5px 5px 5px 5px grey;
 }
+
 div.profile-content{
     margin-right: 20%;
 }
@@ -351,3 +352,45 @@ h6.user{
         font-size: 8px;
     }
 }
+
+/*Dropdown button css*/
+.dropbtn {
+    background-color: transparent;
+    color:black;
+    padding: 0px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: rgb(228, 63, 13);
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:orange;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color :yellow;}
+  
+  .show {display: block;}
+
+/*Dropdown button ends here*/
