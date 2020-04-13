@@ -5,11 +5,25 @@
         padding: 10px;
         border : 4px solid black;
         border-radius : 10px;  
-        z-index: 1;
-    
+}
+div.login-type{
+    display: none;
+    background-color: white;
+    margin-top: -25px;
+    font-size: large;
+    position: absolute;
+    right: 5px;
+    z-index: 1;
+}
+ul.login-type{
+    float: left;
+    margin-left: 0px;
+    padding-right: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 2;
 }
 ul.header{
-    margin-left: -30px;
+    padding-left: 30px;
 }
 p.small, p.medium, .mobile{
     display: none;
@@ -30,6 +44,7 @@ section{
 body{
     background-color : lightblue;
     color : red;
+    z-index: 0;
 }
 a{
     text-decoration: none;
@@ -38,7 +53,7 @@ a.sub{
     color : white;
 }
 a:link{
-    color :none;
+    color :rgb(0, 102, 153);
 }
 a:hover{
     color: rgb(8, 59, 153);
@@ -105,6 +120,9 @@ section.entry{
     display:inline-block; 
     padding: 30px 30px 30px 30px;
     margin: 0 auto 0 auto;
+}
+section.student, section.staff{
+    display: none;
 }
 form.left{
     text-align: left;
@@ -175,11 +193,12 @@ h6.user{
     margin-top: 10px;
 }
 
+
 /*header*/
 
 img.profile{
     position: absolute;
-    top: 50px;
+    top: 55px;
     right:5px;
     width: 50px;
     height: 50px;
@@ -203,7 +222,7 @@ h6.user{
     }
 }
 
-@media screen and (min-width: 906px){
+@media screen and (min-width: 1100px){
     img.profile{
         position:absolute;
         top: 5px;
@@ -218,14 +237,14 @@ h6.user{
     }
 }
 
-@media screen and (max-width: 905px) and (min-width: 841px){
+@media screen and (max-width: 1099px) and (min-width: 870px){
     img.profile{
         position:absolute;
-        top: 30px;
+        top: 40px;
         right:3px;
-        width: 80px;
-        height: auto;
-        border-radius: 0px;
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
     }
     h6.user{
         font-size: 12px;
@@ -233,14 +252,14 @@ h6.user{
     }
 }
 
-@media screen and (max-width: 840px) and (min-width: 681px){
+@media screen and (max-width: 870px) and (min-width: 551px){
     img.profile{
         position:absolute;
-        top: 60px;
+        top: 65px;
         right:5px;
-        width: 70px;
-        height: 70px;
-        border-radius: 35px;
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
         margin-bottom: 30px;
     }
     h6.user{
@@ -249,7 +268,7 @@ h6.user{
     }
 }
 
-@media screen and (max-width: 680px){
+@media screen and (max-width: 1040px){
     .heading,.header, h4{
         font-size: 20px;
     }
@@ -267,7 +286,7 @@ h6.user{
     }
 }
 
-@media screen and (max-width: 565px){
+@media screen and (max-width: 750px){
     .heading,.header, h4{
         font-size: 15px;
     }
@@ -282,7 +301,7 @@ h6.user{
     }
 }
 
-@media screen and (max-width: 440px){
+@media screen and (max-width: 550px){
     .heading,.header, h4{
         font-size: 10px;
     }
@@ -294,7 +313,7 @@ h6.user{
     }
     img.profile{
         position:absolute;
-        top: 45px;
+        top: 65px;
         right:5px;
         width: 40px;
         height: 40px;
@@ -302,9 +321,9 @@ h6.user{
     }
 }
 
-@media screen and (max-width: 370px){
+@media screen and (max-width: 400px){
     .heading,.header, h4{
-        font-size: 10px;
+        font-size: 9px;
     }
     body{
         font-size: 8px;

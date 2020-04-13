@@ -58,8 +58,8 @@
                             <a class="sub" href = "includes/logout.inc.php"><b>Logout</b></a></button></li>';
                     }
                     else if(!isset($_SESSION['uid'])){
-                        echo'<button class="submit-buttons entry" type="submit" name="login" style="float : right;">
-                            <a class="sub" href = "login.php" ><b>Login</b></a></button>
+                        echo'<button class="submit-buttons entry login" id="login" type="submit" name="login" style="float : right;">
+                            <a class="sub" href = "../login.php?login-type=student" ><b>Login</b></a></button>
                             <button class="submit-buttons entry" type="submit" name="signup"style="float : right;margin-right: 10px">
                             <a class="sub" href = "signup.php"><b>Sign Up</b></a></button>';
                     }
@@ -67,5 +67,30 @@
             </ul>
         </span>
     </nav>
+    <div class="login-type" id="login-type-div">
+        <ul class="login-type" id="login-type-ul"> 
+            <li><br><a href="../login.php?login-type=student">STUDENT</a></li><br><br>
+            <li><a href="../login.php?login-type=staff">STAFF</a></li><br>
+        </ul>
+    </div>
+    <script>
+        var button = document.getElementById("login");
+        var div = document.getElementById("login-type-div");
+        var ul = document.getElementById("login-type-ul");
+        button.addEventListener("mouseover", function(){ div.style.display = "initial"; });
+        button.addEventListener("mouseout", function(){ div.style.display = "none"; });
+        div.addEventListener("mouseover", function(){ div.style.display = "initial"; });
+        div.addEventListener("mouseout", function(){ div.style.display = "none"; });
+        button.addEventListener("click", displayLoginType);
+        function displayLoginType(){
+            if (div.style.display == "none"){
+                div.style.display = "initial";
+            }else if(div.style.display == "initial"){
+                div.style.display = "none";
+            }
+
+        }
+
+    </script>
 </body>
 </html>

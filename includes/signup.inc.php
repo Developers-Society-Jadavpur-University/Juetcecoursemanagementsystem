@@ -1,33 +1,35 @@
 <?php
     if(isset($_POST["signup-submit"])){
 
+        session_start();
+
         require "dbh.inc.php";
 
-        $name = $_POST["uname"];
-        $rollnumber = $_POST["rollno"];
+        $rollnumber = $_SESSION["show_rollno"];    
+        $name = $_SESSION["Full_name"];
         $email = $_POST["e-mail"];
         $password = $_POST["pwd"];
         $repassword = $_POST["rpwd"];
         $update_status1 = $update_status2 = $update_status3 = 0;
 
-        if(empty($name)||empty($rollnumber)||empty($email)||empty($password)||empty($repassword)){
-            header("Location: ../signup.php?error=emptyfields&uname=".$name."&rollno=".$rollnumber."&e-mail=".$email);
+        if(empty($email)||empty($password)||empty($repassword)){
+            header("Location: ../signup.php?error=emptyfields&e-mail=".$email);
             exit();
         }
         else if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-z A-Z]*$/",$name)){
-            header("Location: ../signup.php?error=invalidname_and_email&rollno=".$rollnumber);
+            header("Location: ../signup.php?error=invalidname_and_email");
             exit();
         }
-        else if(!preg_match("/^[a-z A-Z]*$/",$name)){
-            header("Location: ../signup.php?error=invalidname&rollno=".$rollnumber."&e-mail=".$email);
+        /*else if(!preg_match("/^[a-z A-Z]*$/",$name)){
+            header("Location: ../signup.php?error=invalidname&e-mail=".$email);
             exit();
-        }
+        }*/
         else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-            header("Location: ../signup.php?error=invalidemail&uname=".$name."&rollno=".$rollnumber);
+            header("Location: ../signup.php?error=invalidemail");
             exit();
         }
         else if($password !== $repassword){
-            header("Location: ../signup.php?error=passwordcheck&uname=".$name."&rollno=".$rollnumber."&e-mail=".$email);
+            header("Location: ../signup.php?error=passwordcheck&e-mail=".$email);
             exit();
         }
         else{
@@ -39,7 +41,7 @@
             }
             else{
                 $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
-                mysqli_stmt_bind_param($stmt,"ssssi",$name,$rollnumber,$email,$hashedPwd,$update_status1,$update_status2,$update_status3);
+                mysqli_stmt_bind_param($stmt,"ssssiii",$name,$rollnumber,$email,$hashedPwd,$update_status1,$update_status2,$update_status3);
                 mysqli_stmt_execute($stmt);
                 session_start();
                 $_SESSION['uid']=$name;
@@ -56,7 +58,7 @@
                     echo "Some unwanted error occurred!";
                     exit(); 
                 }else{
-                    mysqli_stmt_bind_param($stmt,"iis",$rollnumber, $status, $type);
+                    mysqli_stmt_bind_param($stmt,"sis",$rollnumber, $status, $type);
                     mysqli_stmt_execute($stmt);
                 }
                 header("Location: ../dashboard.php?signup=successful");
