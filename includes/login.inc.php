@@ -56,11 +56,10 @@
         require "dbh.inc.php";
 
         $username = $_POST['uname'];
-        $rollnumber = $_POST['rollno'];
         $role = $_POST['role'];
         $password = $_POST['pwd'];
 
-        if(empty($username)||empty($rollnumber)||empty($role)||empty($password)){
+        if(empty($username)||empty($role)||empty($password)){
             header("Location: ../login.php?login-type=staff&error=emptyfields");
             exit();
         }
@@ -68,14 +67,14 @@
             header("Location: ../login.php?login-type=staff&error=invalidusername");
             exit();
         } else{
-            $sql = "SELECT * FROM users_staff WHERE uname=? OR email=? AND rno=?;";
+            $sql = "SELECT * FROM users_staff WHERE uname=? OR email=? AND 'role'=?;";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ../login.php?login-type=staff&error=sqlerror");
                 exit();
             }
             else{
-                mysqli_stmt_bind_param($stmt,"sss",$username,$username,$rollno);
+                mysqli_stmt_bind_param($stmt,"sss",$username,$username,$role);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 if($row = mysqli_fetch_assoc($result)){
@@ -86,7 +85,6 @@
                     }else if($pwdCheck == true){
                         session_start();
                         $_SESSION['uid']=$row['uname'];
-                        $_SESSION['roll']=$row['rno'];
                         $_SESSION['role']=$row['role'];
                         if($_SESSION['role'] == 'admin'){
                             header("Location: ../admindashboard.php?login=success");

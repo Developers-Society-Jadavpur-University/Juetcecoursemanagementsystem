@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2020 at 05:25 PM
+-- Generation Time: Apr 13, 2020 at 05:42 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -201,8 +201,8 @@ INSERT INTO `users` (`uname`, `rno`, `email`, `pwd`, `update_status1`, `update_s
 --
 
 CREATE TABLE `users_staff` (
+  `id` int(11) NOT NULL,
   `uname` varchar(50) NOT NULL,
-  `rno` char(12) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role` varchar(10) NOT NULL,
   `pwd` longtext NOT NULL
@@ -212,8 +212,8 @@ CREATE TABLE `users_staff` (
 -- Dumping data for table `users_staff`
 --
 
-INSERT INTO `users_staff` (`uname`, `rno`, `email`, `role`, `pwd`) VALUES
-('Arijit Saha', '001910701019', 'arijitfeb01@gmail.com', 'admin', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG');
+INSERT INTO `users_staff` (`id`, `uname`, `email`, `role`, `pwd`) VALUES
+(1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG');
 
 --
 -- Indexes for dumped tables
@@ -265,7 +265,7 @@ ALTER TABLE `users`
 -- Indexes for table `users_staff`
 --
 ALTER TABLE `users_staff`
-  ADD PRIMARY KEY (`rno`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -282,6 +282,12 @@ ALTER TABLE `profileimg`
 --
 ALTER TABLE `pwdReset`
   MODIFY `pwdResetId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `users_staff`
+--
+ALTER TABLE `users_staff`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
