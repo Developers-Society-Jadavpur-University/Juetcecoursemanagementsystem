@@ -33,12 +33,22 @@
             exit();
         }
         else{
-            $sql = "INSERT INTO users(uname,rno,email,pwd,update_status1,update_status2,update_status3) VALUES(?,?,?,?,?,?,?)";
+            
+            $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
+            $sql = "INSERT INTO users (uname,rno,email,pwd,update_status1,update_status2,update_status3) VALUES(?,?,?,?,?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ../signup.php?error=sqlerror");
                 exit(); 
             }
+            else{
+                $sql = "UPDATE student_userdata SET reg_status ='Y' WHERE roll_no='$rollnumber'";
+                $stmt = mysqli_stmt_init($conn);
+               if(!mysqli_stmt_prepare($stmt,$sql)){
+                   header("Location: ../signup.php?error=sqlerror");
+                   exit(); 
+                }
+
             else{
                 $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
                 mysqli_stmt_bind_param($stmt,"ssssiii",$name,$rollnumber,$email,$hashedPwd,$update_status1,$update_status2,$update_status3);
@@ -62,6 +72,11 @@
                     mysqli_stmt_execute($stmt);
                 }
                 header("Location: ../dashboard.php?signup=successful");
+
+            }
+                
+                
+                
             }
             mysqli_stmt_close($stmt);
             mysqli_close($conn);
