@@ -1,6 +1,6 @@
 <?php
     
-    if(isset($_POST['login-submit'])){
+    if(isset($_POST['login-student-submit'])){
 
         require "dbh.inc.php";
 
