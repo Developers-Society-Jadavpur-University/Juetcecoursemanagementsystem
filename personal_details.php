@@ -234,7 +234,9 @@
                         var result = window.confirm("Are your sure that you have correctly filled in your details?");
                         if (result == false){
                            return false;
-                        }
+                        }//else{
+                        //     window.location.href = "../includes/profile_update.inc.php";
+                        // }
                     }                
                 }
                 
@@ -243,7 +245,8 @@
                 //Disabling some of the fields to prevent furthur any wrong info by student
                 document.getElementById("stuname").disabled = true;
                 document.getElementById("roll").disabled = true;
-                document.getElementById("email").disabled = true;
+                //document.getElementById("email").disabled = true;
+                //Email may be modified by user
             </script>
         </section>
     </div>

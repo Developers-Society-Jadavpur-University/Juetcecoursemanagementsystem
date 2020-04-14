@@ -6,8 +6,10 @@
   $update_status1 = $update_status2 = $update_status3 = 1;
 
   if(isset($_POST['personal-submit'])){
-    $studentName = $_POST["StudentName"];
-    $rollno = $_POST["rln"];
+    //$studentName = $_POST["StudentName"];
+    //$rollno = $_POST["rln"];
+    $studentName = $_SESSION['uid'];
+    $rollno = $_SESSION['roll'];
     $dateofbirth = $_POST["dob"];
     $bloodgrp = $_POST["bloodgrp"];
     $yearjoin = $_POST["Year"];
@@ -36,28 +38,28 @@
       $category,$wbjeeMaths,$wbjeePhyChem,$stuEmail,$stuContact);
       mysqli_stmt_execute($stmt);
 
-      $sql = "UPDATE users SET uname=?,rno=?,update_status1=? WHERE rno=$rollOld;";
+      $sql = "UPDATE users SET email=?,update_status1=? WHERE rno=$rollOld;";
       $stmt = mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $sql)){
         echo "Some unwanted error occurred! ";
         exit();
       }else{
-        mysqli_stmt_bind_param($stmt,"ssi",$studentName,$rollno,$update_status1);
+        mysqli_stmt_bind_param($stmt,"si",$stuEmail,$update_status1);
         mysqli_stmt_execute($stmt);
         $_SESSION['state']['1'] = $update_status1;
-        $_SESSION['uid'] = $studentName;
-        $_SESSION['roll'] = $rollno;
+        //$_SESSION['uid'] = $studentName;
+        //$_SESSION['roll'] = $rollno;
       }
 
-      $sql = "UPDATE profileimg SET user_rno=? WHERE user_rno=$rollOld;";
-      $stmt = mysqli_stmt_init($conn);
-      if(!mysqli_stmt_prepare($stmt, $sql)){
-        echo "Some unwanted error occurred! ";
-        exit();
-      }else{
-        mysqli_stmt_bind_param($stmt,"s",$rollno);
-        mysqli_stmt_execute($stmt);
-      }
+      // $sql = "UPDATE profileimg SET user_rno=? WHERE user_rno=$rollOld;";
+      // $stmt = mysqli_stmt_init($conn);
+      // if(!mysqli_stmt_prepare($stmt, $sql)){
+      //   echo "Some unwanted error occurred! ";
+      //   exit();
+      // }else{
+      //   mysqli_stmt_bind_param($stmt,"s",$rollno);
+      //   mysqli_stmt_execute($stmt);
+      // }
 
       header("Location: ../parent_details.php?formfill=success");
       exit();
