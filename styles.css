@@ -414,3 +414,32 @@ h6.user{
   .hide {display: none;}
 
 /*Dropdown button ends here*/
+
+/*Arrows*/
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right-arrow {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left-arrow {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up-arrow {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down-arrow {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+/*Aroow ends*/
