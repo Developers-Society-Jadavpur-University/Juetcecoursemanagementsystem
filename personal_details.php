@@ -64,30 +64,9 @@
     ?>
     <div class="profile-content">
     <div>
-        
-      <ul class="header" style=" background-color: orange;" >
-        
-        <li><div class="dropdown">
-           <button onclick="dropdownfunction()" class="dropbtn">Profile Update</button>
-          <div id="myDropdown" class="dropdown-content">
-           <a href="personal_details.php">Personal Details</a>
-           <a href="parent_details.php">Parent Details</a>
-           <a href="address_details.php">Address Details</a>
-          </div>
-         </div>
-        </li>
-        <li><div class="dropdown">
-             <button onclick="dropdownfunction_semester()" class="dropbtn">Semester Info</button>
-            <div id="myDropdown_semester" class="dropdown-content">
-             <a href="#">Semester Registration</a>
-             <a href="#">Class Routine</a>
-             <a href="#">Class Test Schedule</a>
-             <a href="#">Class Test Results</a>
-             
-            </div>
-           </div>
-          </li>
-     </ul>    
+        <?php
+          require "cms-nav_stu.php";
+        ?>  
     </div>
         <section class="update-forms">
             <form action="includes/profile_update.inc.php" method="post">
