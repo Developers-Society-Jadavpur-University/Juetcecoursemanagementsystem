@@ -73,12 +73,8 @@
             header("Location: ../login.php?login-type=staff&error=invalidusername");
             exit();
         } else{
-<<<<<<< HEAD
-            $sql = "SELECT * FROM users_staff WHERE uname=? OR email=? AND 'role'=?";
-=======
 
             $sql = "SELECT * FROM users_staff WHERE staff_role=? AND (uname=? OR email=?);";
->>>>>>> 76a493b9ef56fbd97d41a1ecbdd5ccd2e39e3f08
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ../login.php?login-type=staff&error=sqlerror");

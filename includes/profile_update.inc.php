@@ -25,11 +25,7 @@
     $stuContact = $_POST["stuContact"];
 
     if ($_SESSION['state']['1'] == 0){
-<<<<<<< HEAD
-      $sql = "INSERT INTO personalDetails VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-=======
-      $sql = "INSERT INTO personalDetails(uname,rno,dob,bloodGrp,yJoin,yStudy,Stream,Gender,Category,wbjeeMaths,wbjeePhyChem,stuEmail,stuContact) VALUES('$stuname_db','$rollOld','$dateofbirth','$bloodgrp','$yearjoin','$yearstudy','$stream','$gender','$category','$wbjeeMaths','$wbjeePhyChem','$stuemail_db','$stuContact')";
->>>>>>> 04960cee97053fc112d4fba306d1906ce02c6479
+      $sql = "INSERT INTO personalDetails(uname,rno,dob,bloodGrp,yJoin,yStudy,Stream,Gender,Category,wbjeeMaths,wbjeePhyChem,stuEmail,stuContact) VALUES ('$stuname_db','$rollOld','$dateofbirth','$bloodgrp','$yearjoin','$yearstudy','$stream','$gender','$category','$wbjeeMaths','$wbjeePhyChem','$stuemail_db','$stuContact')";
     }else{
       $sql = "UPDATE personalDetails SET uname='$stuname_db',rno='$rollOld',dob='$dateofbirth',bloodGrp='$bloodgrp',
       yJoin='$yearjoin',yStudy='$yearstudy',Stream='$stream',Gender='$gender',Category='$category',wbjeeMaths='$wbjeeMaths',wbjeePhyChem='$wbjeePhyChem',stuEmail='$stuemail_db',stuContact='$stuContact' WHERE rno=$rollOld";
@@ -44,34 +40,13 @@
       $category,$wbjeeMaths,$wbjeePhyChem,$stuemail_db,$stuContact);
       mysqli_stmt_execute($stmt);
 
-<<<<<<< HEAD
-      $sql = "UPDATE users SET email=?,update_status1=? WHERE rno=$rollOld;";
-=======
       $sql = "UPDATE users SET update_status1='$update_status1' WHERE rno='$rollOld'";
->>>>>>> 04960cee97053fc112d4fba306d1906ce02c6479
+
       $stmt = mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $sql)){
         echo "Some unwanted error occurred! ";
         exit();
       }else{
-<<<<<<< HEAD
-        mysqli_stmt_bind_param($stmt,"si",$stuEmail,$update_status1);
-        mysqli_stmt_execute($stmt);
-        $_SESSION['state']['1'] = $update_status1;
-        //$_SESSION['uid'] = $studentName;
-        //$_SESSION['roll'] = $rollno;
-      }
-
-      // $sql = "UPDATE profileimg SET user_rno=? WHERE user_rno=$rollOld;";
-      // $stmt = mysqli_stmt_init($conn);
-      // if(!mysqli_stmt_prepare($stmt, $sql)){
-      //   echo "Some unwanted error occurred! ";
-      //   exit();
-      // }else{
-      //   mysqli_stmt_bind_param($stmt,"s",$rollno);
-      //   mysqli_stmt_execute($stmt);
-      // }
-=======
         mysqli_stmt_bind_param($stmt,"ssi",$studentName,$rollOld,$update_status1);
         mysqli_stmt_execute($stmt);
         $_SESSION['state']['1'] = $update_status1;
@@ -88,7 +63,6 @@
         mysqli_stmt_bind_param($stmt,"s",$rollOld);
         mysqli_stmt_execute($stmt);
       }
->>>>>>> 04960cee97053fc112d4fba306d1906ce02c6479
 
       header("Location: ../parent_details.php?formfill=success");
       exit();
