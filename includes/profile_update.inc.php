@@ -3,6 +3,8 @@
   session_start();
   require "dbh.inc.php";
   $rollOld = $_SESSION['roll'];
+  $stuname_db = $_SESSION['uid'];
+  $stuemail_db = $_SESSION['email_stu'];
   $update_status1 = $update_status2 = $update_status3 = 1;
 
   if(isset($_POST['personal-submit'])){
@@ -21,10 +23,10 @@
     $stuContact = $_POST["stuContact"];
 
     if ($_SESSION['state']['1'] == 0){
-      $sql = "INSERT INTO personalDetails(uname,rno,dob,bloodGrp,yJoin,yStudy,Stream,Gender,Category,wbjeeMaths,wbjeePhyChem,stuEmail,stuContact) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO personalDetails(uname,rno,dob,bloodGrp,yJoin,yStudy,Stream,Gender,Category,wbjeeMaths,wbjeePhyChem,stuEmail,stuContact) VALUES('$stuname_db','$rollOld','$dateofbirth','$bloodgrp','$yearjoin','$yearstudy','$stream','$gender','$category','$wbjeeMaths','$wbjeePhyChem','$stuemail_db','$stuContact')";
     }else{
-      $sql = "UPDATE personalDetails SET uname=?,rno=?,dob=?,bloodGrp=?,
-      yJoin=?,yStudy=?,Stream=?,Gender=?,Category=?,wbjeeMaths=?,wbjeePhyChem=?,stuEmail=?,stuContact=? WHERE rno=$rollOld";
+      $sql = "UPDATE personalDetails SET uname='$stuname_db',rno='$rollOld',dob='$dateofbirth',bloodGrp='$bloodgrp',
+      yJoin='$yearjoin',yStudy='$yearstudy',Stream='$stream',Gender='$gender',Category='$category',wbjeeMaths='$wbjeeMaths',wbjeePhyChem='$wbjeePhyChem',stuEmail='$stuemail_db',stuContact='$stuContact' WHERE rno=$rollOld";
     }
     echo $sql;
     $stmt = mysqli_stmt_init($conn);
@@ -33,21 +35,21 @@
         exit(); 
     }
     else{
-      mysqli_stmt_bind_param($stmt,"ssssissssddss",$studentName,$rollno,$dateofbirth,$bloodgrp,$yearjoin,$yearstudy,$stream,$gender,
-      $category,$wbjeeMaths,$wbjeePhyChem,$stuEmail,$stuContact);
+      mysqli_stmt_bind_param($stmt,"ssssissssddss",$stuname_db,$rollOld,$dateofbirth,$bloodgrp,$yearjoin,$yearstudy,$stream,$gender,
+      $category,$wbjeeMaths,$wbjeePhyChem,$stuemail_db,$stuContact);
       mysqli_stmt_execute($stmt);
 
-      $sql = "UPDATE users SET uname=?,rno=?,update_status1=? WHERE rno=$rollOld;";
+      $sql = "UPDATE users SET update_status1='$update_status1' WHERE rno='$rollOld'";
       $stmt = mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $sql)){
         echo "Some unwanted error occurred! ";
         exit();
       }else{
-        mysqli_stmt_bind_param($stmt,"ssi",$studentName,$rollno,$update_status1);
+        mysqli_stmt_bind_param($stmt,"ssi",$studentName,$rollOld,$update_status1);
         mysqli_stmt_execute($stmt);
         $_SESSION['state']['1'] = $update_status1;
-        $_SESSION['uid'] = $studentName;
-        $_SESSION['roll'] = $rollno;
+        $_SESSION['uid'] = $stuname_db;
+        $_SESSION['roll'] = $rollOld;
       }
 
       $sql = "UPDATE profileimg SET user_rno=? WHERE user_rno=$rollOld;";
@@ -56,7 +58,7 @@
         echo "Some unwanted error occurred! ";
         exit();
       }else{
-        mysqli_stmt_bind_param($stmt,"s",$rollno);
+        mysqli_stmt_bind_param($stmt,"s",$rollOld);
         mysqli_stmt_execute($stmt);
       }
 

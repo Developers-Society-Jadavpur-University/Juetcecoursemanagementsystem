@@ -37,9 +37,13 @@
                         session_start();
                         $_SESSION['uid']=$row['uname'];
                         $_SESSION['roll']=$row['rno'];
+                        $_SESSION['email_stu']=$row['email'];
                         $_SESSION['state']['1']=$row['update_status1'];
                         $_SESSION['state']['2']=$row['update_status2'];
                         $_SESSION['state']['3']=$row['update_status3'];
+                        
+                        
+                        
                         header("Location: ../dashboard.php?login=successful");
                     }
                 }
