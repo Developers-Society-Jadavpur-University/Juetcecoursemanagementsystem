@@ -57,7 +57,20 @@
                         $_SESSION['state']['1']=$update_status1;
                         $_SESSION['state']['2']=$update_status2;
                         $_SESSION['state']['3']=$update_status3;
-        
+                        
+                        $sql = "SELECT Course_code FROM student_userdata WHERE roll_no='$rollnumber'";
+                        if ($conn->query($sql) == TRUE) {
+                            $result = $conn->query($sql);
+                            while($row = $result->fetch_assoc())
+                            {   
+                                $_SESSION['course_code']=$row["Course_code"];
+                                  
+                            }
+                        }
+                        else{
+                            echo "error in session course code initialisation";
+                        }
+
                         $sql = "INSERT INTO profileimg(user_rno, status_name, ext) VALUES(?, ?, ?); ";
                         $status = 1;
                         $type = 'none';

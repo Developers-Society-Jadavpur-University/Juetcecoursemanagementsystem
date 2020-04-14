@@ -41,6 +41,22 @@
                         $_SESSION['state']['1']=$row['update_status1'];
                         $_SESSION['state']['2']=$row['update_status2'];
                         $_SESSION['state']['3']=$row['update_status3'];
+
+                        $sql = "SELECT Course_code FROM student_userdata WHERE roll_no='$rollno'";
+                        if ($conn->query($sql) == TRUE) {
+                            $result = $conn->query($sql);
+
+                            
+
+                            while($row = $result->fetch_assoc())
+                            {   
+                                $_SESSION['course_code']=$row["Course_code"];
+                                    
+                            }
+                        }
+                        else{
+                            echo "session course code not found";
+                        }
                         
                         
                         
