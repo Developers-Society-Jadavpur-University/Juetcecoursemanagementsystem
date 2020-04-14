@@ -33,40 +33,11 @@
             exit();
         }
         else{
-<<<<<<< HEAD
             $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
  
             $sql = "INSERT INTO users(uname,rno,email,pwd,update_status1,update_status2,update_status3) VALUES('$name','$rollnumber','$email','$hashedPwd','$update_status1','$update_status2','$update_status3')";
             if ($conn->query($sql) === TRUE) {
                 //All data entered to the users table.
-=======
-            
-            $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
-            $sql = "INSERT INTO users (uname,rno,email,pwd,update_status1,update_status2,update_status3) VALUES(?,?,?,?,?,?,?)";
-            $stmt = mysqli_stmt_init($conn);
-            if(!mysqli_stmt_prepare($stmt,$sql)){
-                header("Location: ../signup.php?error=sqlerror");
-                exit(); 
-            }
-            else{
-                $sql = "UPDATE student_userdata SET reg_status ='Y' WHERE roll_no='$rollnumber'";
-                $stmt = mysqli_stmt_init($conn);
-               if(!mysqli_stmt_prepare($stmt,$sql)){
-                   header("Location: ../signup.php?error=sqlerror");
-                   exit(); 
-                }
-
-            else{
-                $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
-                mysqli_stmt_bind_param($stmt,"ssssiii",$name,$rollnumber,$email,$hashedPwd,$update_status1,$update_status2,$update_status3);
-                mysqli_stmt_execute($stmt);
-                session_start();
-                $_SESSION['uid']=$name;
-                $_SESSION['roll']=$rollnumber;
-                $_SESSION['state']['1']=$update_status1;
-                $_SESSION['state']['2']=$update_status2;
-                $_SESSION['state']['3']=$update_status3;
->>>>>>> arijit/develop
 
                 $sql = "UPDATE student_userdata SET reg_status = 'Y' WHERE roll_no='$rollnumber'";
                 if ($conn->query($sql) === TRUE) {
@@ -105,20 +76,11 @@
                 {
                     echo "Error: " . $sql . "<br>" . $conn->error; 
                 }
-<<<<<<< HEAD
                
             
             
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
-=======
-                header("Location: ../dashboard.php?signup=successful");
-
-            }
-                
-                
-                
->>>>>>> arijit/develop
             }
             
             
