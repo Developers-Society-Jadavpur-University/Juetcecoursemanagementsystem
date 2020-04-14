@@ -27,7 +27,17 @@
              
             </div>
            </div>
-          </li>
+        </li>
+        <li><div class="dropdown">
+             <button id="notice_menu" onclick="dropdownfunction_notice()" class="dropbtn">Announcements &nbsp;<i onclick="dropdownfunction_notice()" class="arrow down-arrow"></i></button>
+            <div id="myDropdown_notice" class="dropdown-content">
+             <a href="../dashboard.php">Active Notices</a>
+             <a href="#">Archived Notices</a>
+             
+             
+            </div>
+           </div>
+        </li>
      </ul>
 
 <script>
@@ -39,7 +49,9 @@ function dropdownfunction() {
 function dropdownfunction_semester() {
     document.getElementById("myDropdown_semester").classList.toggle("show");
 }
-
+function dropdownfunction_notice() {
+    document.getElementById("myDropdown_notice").classList.toggle("show");
+}
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('#prof_menu')) {
@@ -56,6 +68,18 @@ window.onclick = function(event) {
 window.onclick = function(event) {
   if (!event.target.matches('#sem_menu')) {
     var dropdowns = document.getElementsById("myDropdown_semester");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+window.onclick = function(event) {
+  if (!event.target.matches('#notice_menu')) {
+    var dropdowns = document.getElementsById("myDropdown_notice");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
