@@ -10,6 +10,7 @@
 <body>
     <?php 
         require "header.php";
+        require "cms-nav_stu.php";
         require "prevent_login.php";
         
         if(isset($_GET['login'])) {
@@ -24,7 +25,7 @@
         if(isset($_GET['signup'])) {
             if ($_GET['signup'] == 'successful'){
                 echo "<script>window.alert('Signup was successful!');</script>";
-                echo"<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
+                echo "<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
                 //$url = "../profile_update.php?StudentName=".$_SESSION['uid'];
                 $url = "../personal_details.php";
                 echo"<a href='".$url."'>Update Details</a>";
@@ -40,7 +41,9 @@
                 echo"<h4>Profile picture uploaded successfully!</h4>";
             }
         } 
-        require "nav-bar.php"; 
+        
+        //require "nav-bar.php"; 
+        require "stu-notice_table.php";
         require "footer.php"; 
     ?> 
 
