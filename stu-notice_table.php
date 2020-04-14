@@ -11,7 +11,8 @@
 </head>
 <body>
 <?php 
-        //require "header.php";
+		
+		require "includes/dbh.inc.php";
         require "prevent_login.php";
 ?>    
         <div class="table100" style="padding-top: 10px; padding-left: 10px; padding-right: 10px; overflow: scroll; max-height: 600px;">
@@ -24,61 +25,52 @@
 							</tr>
 						</thead>
 						<tbody>
-								<tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
+						<!--<tr>
+							<td class="column1 flash">2017-09-29 01:22</td>
+							<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
+							<td class="column3 flash">Click Here for details</td>
 									
-								</tr>
-								<tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-                                <tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-                                <tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-								<tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-                                <tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-                                <tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-								<tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
-                                <tr>
-									<td class="column1 flash">2017-09-29 01:22</td>
-									<td class="column2 flash">All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020.All the Students of ETCE UG 1 are requested to complete the registration process in this portal on or before 13/07/2020</td>
-									<td class="column3 flash">Click Here for details</td>
-									
-								</tr>
+						</tr>-->
+						
+						<?php
+						   $course_code = $_SESSION['course_code'];
+						   //echo $course_code;  
+						 
+						   $count = 0;
+                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE notice_visible='ALL' OR notice_visible='$course_code'");
+						   foreach($query as $row)
+						   {
+                           $count++;
+                        ?>
+								
+								
+								<?php echo '<tr>'?>
+									<td class="column1 flash"><?php echo $row["date_time"];?></td>
+									<td class="column2 flash"><?php echo $row["notice"];?></td>
+									<td class="column3 flash">
+									<?php
+									   if($row["file_id"]=="")
+									    {
+										  echo "NA";
+									    }
+									    else{
+										//Add proper file link here by proper query.
+											echo '<a href="../#">Click here for details</a>';
+									    }
 
+									?>
+									</td>
+									<?php
+									if($count == 3) 
+									{ 
+										// three items in a row
+                                        echo '</tr>';
+                                        $count = 0;
+                                     }
+                                } ?>
+									
+								
+								
 								
 								
 							</tbody>
