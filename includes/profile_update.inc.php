@@ -21,12 +21,11 @@
     $stuContact = $_POST["stuContact"];
 
     if ($_SESSION['state']['1'] == 0){
-      $sql = "INSERT INTO personalDetails(uname,rno,dob,bloodGrp,yJoin,yStudy,Stream,Gender,Category,wbjeeMaths,wbjeePhyChem,stuEmail,stuContact) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO personalDetails VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
     }else{
       $sql = "UPDATE personalDetails SET uname=?,rno=?,dob=?,bloodGrp=?,
       yJoin=?,yStudy=?,Stream=?,Gender=?,Category=?,wbjeeMaths=?,wbjeePhyChem=?,stuEmail=?,stuContact=? WHERE rno=$rollOld";
     }
-    echo $sql;
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo "Some unwanted error occurred! ";

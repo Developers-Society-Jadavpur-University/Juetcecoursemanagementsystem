@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <?php
-        $login = isset($_GET['login-type']);        
+
+        if(isset($_GET['login-type'])){
+            $login = isset($_GET['login-type']);
+            $loginType = $_GET['login-type'];
+        }else{
+            $login = false;
+            $loginType = "";
+        }        
     ?>
 </head>
 <body>
@@ -45,7 +52,7 @@
         <section class="entry" id="student">
             <form action="includes/login.inc.php" method="post" class="left">
                 Username<br><input type="text" name="u_name" placeholder ="Full name / Email"><br><br>
-                Roll Number (12 digit)<br><input type="number" name="roll_no" placeholder ="20107010XX"><br><br>
+                Roll Number (12 digit)<br><input type="number" name="roll_no" placeholder ="0020107010XX"><br><br>
                 Password<br><input type="password" name="pwdl"><br><br><br>
                 <a class="left" href="signup.php">Create new account</a>&emsp;
                 <a class="right" href="reset-password.php">Forgot Password?</a><br><br>
@@ -69,8 +76,9 @@
             var student = document.getElementById("student");
             var staff = document.getElementById("staff");
             var login = <?=json_encode($login)?>;
-            var loginType = <?=json_encode($_GET['login-type'])?>;
-            if(login){
+            
+            if(login == true){
+                var loginType = <?=json_encode($loginType)?>;
                 if (loginType == 'student'){
                     student.style.display = "inline-block";
                     staff.style.display = "none";
