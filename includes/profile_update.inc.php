@@ -8,8 +8,10 @@
   $update_status1 = $update_status2 = $update_status3 = 1;
 
   if(isset($_POST['personal-submit'])){
-    $studentName = $_POST["StudentName"];
-    $rollno = $_POST["rln"];
+    //$studentName = $_POST["StudentName"];
+    //$rollno = $_POST["rln"];
+    $studentName = $_SESSION['uid'];
+    $rollno = $_SESSION['roll'];
     $dateofbirth = $_POST["dob"];
     $bloodgrp = $_POST["bloodgrp"];
     $yearjoin = $_POST["Year"];
@@ -28,7 +30,6 @@
       $sql = "UPDATE personalDetails SET uname='$stuname_db',rno='$rollOld',dob='$dateofbirth',bloodGrp='$bloodgrp',
       yJoin='$yearjoin',yStudy='$yearstudy',Stream='$stream',Gender='$gender',Category='$category',wbjeeMaths='$wbjeeMaths',wbjeePhyChem='$wbjeePhyChem',stuEmail='$stuemail_db',stuContact='$stuContact' WHERE rno=$rollOld";
     }
-    echo $sql;
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo "Some unwanted error occurred! ";

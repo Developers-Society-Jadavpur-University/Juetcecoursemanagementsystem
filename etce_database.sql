@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2020 at 05:42 PM
+-- Generation Time: Apr 14, 2020 at 07:18 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -121,10 +121,10 @@ CREATE TABLE `profileimg` (
 --
 
 INSERT INTO `profileimg` (`id`, `user_rno`, `status_name`, `ext`) VALUES
-(2, '001910701019', 0, 'jpg'),
 (4, '001910701012', 1, 'none'),
 (5, '001910701012', 1, 'none'),
-(6, '1910701012', 1, 'none');
+(6, '1910701012', 1, 'none'),
+(7, '1910701019', 0, 'jpg');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ INSERT INTO `pwdReset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdR
 --
 
 CREATE TABLE `student_userdata` (
-  `roll_no` int(11) NOT NULL,
+  `roll_no` char(12) NOT NULL,
   `Full_name` varchar(60) NOT NULL,
   `Course_code` varchar(10) NOT NULL,
   `reg_status` varchar(1) NOT NULL DEFAULT 'N',
@@ -168,8 +168,8 @@ CREATE TABLE `student_userdata` (
 --
 
 INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `Course_code`, `reg_status`, `course_name`, `department`, `faculty`) VALUES
-(1910701012, 'AYAN BISWAS', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
-(1910701019, 'ARIJIT SAHA', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology');
+('001910701012', 'AYAN BISWAS', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910701019', 'ARIJIT SAHA', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uname`, `rno`, `email`, `pwd`, `update_status1`, `update_status2`, `update_status3`) VALUES
-('Arijit Saha', '001910701019', 'arijitfeb01@gmail.com', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG', 1, 1, 1);
+('ARIJIT SAHA', '001910701019', 'arijitfeb01@gmail.com', '$2y$10$H8S9Zy5GwsLhCP41Sm.Xw.mxam2S4Y3Y7J8.vJnyErshEdJWiH3wC', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -204,7 +204,7 @@ CREATE TABLE `users_staff` (
   `id` int(11) NOT NULL,
   `uname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `role` varchar(10) NOT NULL,
+  `staff_role` varchar(10) NOT NULL,
   `pwd` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -212,8 +212,8 @@ CREATE TABLE `users_staff` (
 -- Dumping data for table `users_staff`
 --
 
-INSERT INTO `users_staff` (`id`, `uname`, `email`, `role`, `pwd`) VALUES
-(1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG');
+INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
+(1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'faculty', '$2y$10$tQMbFQpZuVWJqtr2NHqJseK.mLyAJnfWwKvzJl900TA433g6xnucG');
 
 --
 -- Indexes for dumped tables
@@ -275,7 +275,7 @@ ALTER TABLE `users_staff`
 -- AUTO_INCREMENT for table `profileimg`
 --
 ALTER TABLE `profileimg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pwdReset`
