@@ -6,7 +6,7 @@ function dropdownfunction() {
   
 }
 function dropdownfunction_semester() {
-    document.getElementById("myDropdown_semester").classList.toggle("show");
+  document.getElementById("myDropdown_semester").classList.toggle("show");
     
   }
 

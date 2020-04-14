@@ -71,14 +71,15 @@
             header("Location: ../login.php?login-type=staff&error=invalidusername");
             exit();
         } else{
-            $sql = "SELECT * FROM users_staff WHERE uname=? OR email=? AND 'role'=?;";
+
+            $sql = "SELECT * FROM users_staff WHERE staff_role=? AND (uname=? OR email=?);";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ../login.php?login-type=staff&error=sqlerror");
                 exit();
             }
             else{
-                mysqli_stmt_bind_param($stmt,"sss",$username,$username,$role);
+                mysqli_stmt_bind_param($stmt,"sss",$role,$username,$username);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 if($row = mysqli_fetch_assoc($result)){
@@ -89,15 +90,18 @@
                     }else if($pwdCheck == true){
                         session_start();
                         $_SESSION['uid']=$row['uname'];
-                        $_SESSION['role']=$row['role'];
+                        $_SESSION['role']=$row['staff_role'];
                         if($_SESSION['role'] == 'admin'){
-                            header("Location: ../admindashboard.php?login=success");
+                            header("Location: ../admindashboard.php?login=success".$_SESSION['role']);
                             exit();
                         }else if($_SESSION['role'] == 'faculty'){
-                            header("Location: ../facultydashboard.php?login=success");
+                            header("Location: ../facultydashboard.php?login=success".$_SESSION['role']);
                             exit();
                         }
                     }
+                }else{
+                    header("Location: ../login.php?login-type=staff&error=nouser");
+                    exit();
                 }
             }
         }
