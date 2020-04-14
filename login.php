@@ -39,7 +39,7 @@
                 else if($_GET['error'] == 'nouser'){
                     echo "<p>User does not exist!</p>";
                 }
-            }
+            } 
         ?>
         <h3 class="heading"> Login Here </h3>
         <section class="entry" id="student">

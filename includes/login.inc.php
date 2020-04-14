@@ -55,7 +55,9 @@
         }
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
-    }else if(isset($_POST['login-staff-submit'])){
+    }
+    else if(isset($_POST['login-staff-submit']))
+    {
 
         require "dbh.inc.php";
 
@@ -71,7 +73,7 @@
             header("Location: ../login.php?login-type=staff&error=invalidusername");
             exit();
         } else{
-            $sql = "SELECT * FROM users_staff WHERE uname=? OR email=? AND 'role'=?;";
+            $sql = "SELECT * FROM users_staff WHERE uname=? OR email=? AND 'role'=?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ../login.php?login-type=staff&error=sqlerror");
@@ -106,3 +108,5 @@
     else{
         header("Location: ../login.php");
     }
+
+?>
