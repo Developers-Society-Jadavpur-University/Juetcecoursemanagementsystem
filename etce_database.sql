@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 15, 2020 at 04:55 AM
+-- Generation Time: Apr 15, 2020 at 02:51 PM
 -- Server version: 8.0.19-0ubuntu0.19.10.3
 -- PHP Version: 7.3.11-0ubuntu0.19.10.3
 
@@ -200,16 +200,18 @@ CREATE TABLE `stu_notice` (
   `date_time` datetime NOT NULL,
   `notice` varchar(500) NOT NULL,
   `file_id` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `notice_visible` char(10) NOT NULL
+  `notice_visible` char(10) NOT NULL,
+  `notice_status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'open'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `stu_notice`
 --
 
-INSERT INTO `stu_notice` (`notice_id`, `date_time`, `notice`, `file_id`, `notice_visible`) VALUES
-('etc/01', '2020-04-16 04:17:49', 'This is to Notify all the students of Etce UG 1 to complete the registration in the course managament portal', '', 'BETC1923'),
-('etc/02', '2020-04-17 04:51:22', 'This is a test notice ', '01', 'ALL');
+INSERT INTO `stu_notice` (`notice_id`, `date_time`, `notice`, `file_id`, `notice_visible`, `notice_status`) VALUES
+('etc/01', '2020-04-16 04:17:49', 'This is to Notify all the students of Etce UG 1 to complete the registration in the course managament portal', '', 'BETC1923', 'open'),
+('etc/02', '2020-04-17 04:51:22', 'This is a test notice ', '01', 'ALL', 'open'),
+('etc/03', '2020-04-17 05:01:59', 'This is second test notice without file and it is archived', '', 'BETC1923', 'archived');
 
 -- --------------------------------------------------------
 
