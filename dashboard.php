@@ -10,8 +10,10 @@
 <body>
     <?php 
         require "header.php";
-        require "cms-nav_stu.php";
+        
         require "prevent_login.php";
+        require "prevent_protocols/prevent_staff.php";
+        require "cms-nav_stu.php";
         
         if(isset($_GET['login'])) {
             if ($_GET['login'] == 'successful'){

@@ -9,7 +9,10 @@
     <?php 
         require "header.php";
         require "prevent_login.php";
+        require "prevent_protocols/prevent_students.php";
+        require "prevent_protocols/prevent_faculty.php";
         require "admin_dashboard/cms-nav_admin.php";
+        
 
         if(isset($_GET['login']))
         {

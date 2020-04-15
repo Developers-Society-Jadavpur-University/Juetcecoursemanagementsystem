@@ -37,6 +37,7 @@
                         session_start();
                         $_SESSION['uid']=$row['uname'];
                         $_SESSION['roll']=$row['rno'];
+                        $_SESSION['role']='student';
                         $_SESSION['email_stu']=$row['email'];
                         $_SESSION['state']['1']=$row['update_status1'];
                         $_SESSION['state']['2']=$row['update_status2'];
@@ -107,8 +108,9 @@
                         exit();
                     }else if($pwdCheck == true){
                         session_start();
-                        $_SESSION['uid']=$row['uname'];
                         $_SESSION['role']=$row['staff_role'];
+                        $_SESSION['uid']=$row['uname'];
+                        
                         if($_SESSION['role'] == 'admin'){
                             header("Location: ../admindashboard.php?login=success");
                             exit();
