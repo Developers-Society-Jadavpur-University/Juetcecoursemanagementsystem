@@ -6,18 +6,24 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <?php
+    require "prevent_login.php";
+
+    ?>
+   
     <ul class="header" style=" background-color: orange;" >
         
         <li><div class="dropdown">
-           <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Profile Update &nbsp;<i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
+           <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;<i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
           <div id="myDropdown" class="dropdown-content">
-           <a href="personal_details.php">Personal Details</a>
-           <a href="parent_details.php">Parent Details</a>
-           <a href="address_details.php">Address Details</a>
+           <a href="#">Issue New Notice</a>
+           <a href="../admin_dashboard/issued-notice_admin.php">Issued Notice</a>
+           <a href="../admin_dashboard/archived-notice_admin.php">Archived Notice</a>
+          
           </div>
          </div>
         </li>
-        <li><div class="dropdown">
+        <!--<li><div class="dropdown">
              <button id="sem_menu" onclick="dropdownfunction_semester()" class="dropbtn">Semester Info &nbsp;<i onclick="dropdownfunction_semester()" class="arrow down-arrow"></i></button>
             <div id="myDropdown_semester" class="dropdown-content">
              <a href="#">Semester Registration</a>
@@ -32,12 +38,12 @@
              <button id="notice_menu" onclick="dropdownfunction_notice()" class="dropbtn">Announcements &nbsp;<i onclick="dropdownfunction_notice()" class="arrow down-arrow"></i></button>
             <div id="myDropdown_notice" class="dropdown-content">
              <a href="../dashboard.php">Active Notices</a>
-             <a href="../stu-noticearch_table.php">Archived Notices</a>
+             <a href="#">Archived Notices</a>
              
              
             </div>
            </div>
-        </li>
+        </li>-->
      </ul>
 
 <script>

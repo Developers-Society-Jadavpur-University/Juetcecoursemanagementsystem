@@ -110,10 +110,10 @@
                         $_SESSION['uid']=$row['uname'];
                         $_SESSION['role']=$row['staff_role'];
                         if($_SESSION['role'] == 'admin'){
-                            header("Location: ../admindashboard.php?login=success".$_SESSION['role']);
+                            header("Location: ../admindashboard.php?login=success");
                             exit();
                         }else if($_SESSION['role'] == 'faculty'){
-                            header("Location: ../facultydashboard.php?login=success".$_SESSION['role']);
+                            header("Location: ../facultydashboard.php?login=success");
                             exit();
                         }
                     }

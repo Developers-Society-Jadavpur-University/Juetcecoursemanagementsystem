@@ -12,7 +12,9 @@
 <body>
 <?php 
 		
-		require "includes/dbh.inc.php";
+        require "includes/dbh.inc.php";
+        require "header.php";
+        require "cms-nav_stu.php";
         require "prevent_login.php";
 ?>    
         <div class="table100" style="padding-top: 10px; padding-left: 10px; padding-right: 10px; overflow: scroll; max-height: 600px;">
@@ -37,7 +39,7 @@
 						   //echo $course_code;  
 						 
 						   $count = 0;
-                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE (notice_visible='ALL' OR notice_visible='$course_code') AND (notice_status='open')");
+                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE (notice_visible='ALL' OR notice_visible='$course_code') AND (notice_status='archived')");
 						   foreach($query as $row)
 						   {
                            $count++;
@@ -45,9 +47,9 @@
 								
 								
 								<?php echo '<tr>'?>
-									<td class="column1 flash"><?php echo $row["date_time"];?></td>
-									<td class="column2 flash"><?php echo $row["notice"];?></td>
-									<td class="column3 flash">
+									<td class="column1"><?php echo $row["date_time"];?></td>
+									<td class="column2"><?php echo $row["notice"];?></td>
+									<td class="column3">
 									<?php
 									   if($row["file_id"]=="")
 									    {
@@ -79,7 +81,9 @@
   
   </div>
 	
-
+ <?php
+ require "footer.php";
+ ?>
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

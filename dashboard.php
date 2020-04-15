@@ -16,17 +16,15 @@
         if(isset($_GET['login'])) {
             if ($_GET['login'] == 'successful'){
                 echo "<script>window.alert('Login was successful!');</script>";
-                echo"<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
-                //$url = "../profile_update.php?StudentName=".$_SESSION['uid'];
+                echo "<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
                 $url = "../personal_details.php";
-                echo"<a href='".$url."'>Update Details</a>";
+                echo "<a href='".$url."'>Update Details</a>";
             }
         }
         if(isset($_GET['signup'])) {
             if ($_GET['signup'] == 'successful'){
                 echo "<script>window.alert('Signup was successful!');</script>";
                 echo "<h4> Welcome ".$_SESSION['uid']." to the dashboard!</h4>";
-                //$url = "../profile_update.php?StudentName=".$_SESSION['uid'];
                 $url = "../personal_details.php";
                 echo"<a href='".$url."'>Update Details</a>";
             }

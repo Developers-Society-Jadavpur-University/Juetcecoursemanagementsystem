@@ -20,8 +20,8 @@
         }
     ?>
     <div class="profile-content">
-        <h4>Welcome to Electronics and Telecommunication Department</h4>
-    </div> 
+        <h4>Welcome to Electronics and Telecommunication Engineering Department Course Management System </h4>
+    </div>
     <?php
         require "footer.php";
     ?>
