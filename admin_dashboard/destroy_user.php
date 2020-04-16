@@ -1,6 +1,7 @@
 <?php
+$id = $_POST["id"];
 
-$id = intval($_REQUEST['id']);
+//$id = intval($_REQUEST['id']); 
 
 include '../includes/dbh.inc.php';
 

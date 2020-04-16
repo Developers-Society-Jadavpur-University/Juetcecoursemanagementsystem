@@ -3,6 +3,7 @@ $roll_no = htmlspecialchars($_REQUEST['roll_no']);
 $Full_name = htmlspecialchars($_REQUEST['Full_name']);
 $phoneno = htmlspecialchars($_REQUEST['phoneno']);
 $email = htmlspecialchars($_REQUEST['email']);
+//Add this dynamically
 $course_code='BETC1923';
 
 include '../includes/dbh.inc.php';

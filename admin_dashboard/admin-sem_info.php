@@ -26,10 +26,10 @@
             
             
             <div class="easyui-panel" style="height:auto;padding:5px; width:80%;">
-               <div id="p" class="easyui-panel" title="<?php echo $row['course_name'] ?> - <?php echo $row['start_year'] ;?> to <?php echo $row['end_year'] ;?>" style="width:100%;height:710px;padding:10px;"
+               <div id="p" class="easyui-panel" title="<?php echo $row['course_name'] ?> - <?php echo $row['start_year'] ;?> to <?php echo $row['end_year'] ;?>" style="width:100%;height:auto;padding:10px;"
                     data-options="iconCls:'icon-tip', collapsible:true">
                     <div class="easyui-panel" style="height:auto;padding:5px; width:100%;">
-                        <div id="p" class="easyui-panel" title="Information and Actions" style="width:100%;height:205px;padding:10px;"
+                        <div id="p" class="easyui-panel" title="Informations for <?php echo $row['course_code'] ?> " style="width:100%;height:205px;padding:10px;"
                                 data-options="iconCls:'icon-tip', collapsible:true">
                             <!--<p style="font-size:14px; text-align: center;">Select the Proper actions from below to do something for this batch only.</p>-->
                              
@@ -42,6 +42,7 @@
                         </div>
                 
                         <br>
+                        
 
                         
             
