@@ -18,9 +18,16 @@
     DEPARTMENT OF ELECTRONICS AND TELECOMMUNICATION ENGINEERING <br>JADAVPUR UNIVERSITY
     </h4>
         <?php
+
+            require "includes/dbh.inc.php";
+            // $sql = "SELECT date_time_expiry FROM stu_notice;";
+            // $result = mysqli_query($conn,$sql);
+            // $row = mysqli_fetch_assoc($result);
+            $sql = "UPDATE stu_notice SET notice_status='archived' WHERE date_time_expiry<=NOW()";
+            mysqli_query($conn, $sql);
+
             if(isset($_SESSION['uid']) && isset($_SESSION['roll'])) {
 
-                require "includes/dbh.inc.php";
                 $sql = "SELECT * FROM profileimg WHERE user_rno=?;";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -55,7 +62,7 @@
                 <?php
                     if(isset($_SESSION['uid'])){
                         echo'<button class="submit-buttons entry" type="submit" name="logout" style="float : right;">
-                            <a class="sub" href = "includes/logout.inc.php"><b>Logout</b></a></button></li>';
+                            <a class="sub" href = "../includes/logout.inc.php"><b>Logout</b></a></button></li>';
                     }
                     else if(!isset($_SESSION['uid'])){
                         echo'<button class="submit-buttons entry login" id="login" type="submit" name="login" style="float : right;">
