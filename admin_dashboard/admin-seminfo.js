@@ -1,15 +1,15 @@
 var url;
 function newUser(){
-   $('#dlg').dialog('open').dialog('center').dialog('setTitle','New Student of this batch');
+   $('#dlg').dialog('open').dialog('center').dialog('setTitle','New Batch entry');
    $('#fm').form('clear');
-   url = 'save_user.php';
+   url = '../admin_dashboard/save_batches.php';
 }
 function editUser(){
    var row = $('#dg').datagrid('getSelected');
    if (row){
-      $('#dlg').dialog('open').dialog('center').dialog('setTitle','Edit User');
+      $('#dlg').dialog('open').dialog('center').dialog('setTitle','Edit Batch Details');
       $('#fm').form('load',row);
-    url = 'update_user.php?id='+row.id;
+    url = '../admin_dashboard/update_batches.php?id='+row.id;
     }
 }
 function saveUser(){
@@ -35,9 +35,9 @@ function saveUser(){
 function destroyUser(){
 var row = $('#dg').datagrid('getSelected');
  if (row){
-    $.messager.confirm('Confirm','Are you sure you want to delete this student?',function(r){
+    $.messager.confirm('Confirm','Are you sure you want to archive this batch ?',function(r){
         if (r){
-            $.post('destroy_user.php',{id:row.id},function(result){
+            $.post('../admin_dashboard/destroy_batches.php',{id:row.course_code},function(result){
                if (result.success){
                    $('#dg').datagrid('reload');    // reload the user data
                 } else {

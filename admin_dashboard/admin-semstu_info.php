@@ -15,7 +15,7 @@
        
 
         <table id="dg" title="All Students" class="easyui-datagrid" style="width:100%;height:100%;"
-                url="../admin_dashboard/get_users.php"
+                url="../admin_dashboard/get_users.php" 
                 toolbar="#toolbar" pagination="true"
                 rownumbers="true" fitColumns="true" singleSelect="true">
             <thead>
