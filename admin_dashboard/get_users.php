@@ -4,7 +4,9 @@
 	$offset = ($page-1)*$rows;
 	$result = array();
 	// Add this dynamically .
+	session_start();
 	$course_code = $_SESSION['course_code'];
+	//$course_code = 'BETC1923';
 
 	include '../includes/dbh.inc.php';
 	

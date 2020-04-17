@@ -69,13 +69,7 @@
                   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
                </div>
                
-
-
-
-
-
-
-              <!--Table Ends here -->
+                 <!--Table Ends here -->
             </div>
    </div>
             

@@ -37,9 +37,10 @@ var row = $('#dg').datagrid('getSelected');
  if (row){
     $.messager.confirm('Confirm','Are you sure you want to archive this batch ?',function(r){
         if (r){
-            $.post('../admin_dashboard/destroy_batches.php',{id:row.course_code},function(result){
+            $.post('../admin_dashboard/destroy_batches.php',{id:row.course_code},function(result)
+            {
                if (result.success){
-                   $('#dg').datagrid('reload');    // reload the user data
+                   $('#dg').datagrid('reload'); // reload the user data
                 } else {
                     $.messager.show({    // show error message
                     title: 'Error',
@@ -60,10 +61,8 @@ if (row){
         if (r){
             $.post('../admin_dashboard/admin-batch_action.php',{id:row.course_code},function(result){
                if (result.success){
-                   //window.location= "admin-semstu_info.php";    // reload the user data
-                   //header("Location:../admin_dashboard/admin-semstu_info.php");
-                   window.location = "/admin_dashboard/admin-semstu_info.php";
-                   $_SESSION['course_code']=row.course_code;
+                   window.location = "admin_dashboard/admin-semstu_info.php?course_code="+row.course_code;
+                   
                 } else {
                     $.messager.show({    // show error message
                     title: 'Error',
@@ -71,6 +70,7 @@ if (row){
                   });
               }
           },'json');
+          
        }
    });
    }

@@ -10,14 +10,17 @@
     </head>
     <body>
         <?php
-        $course_code = $_SESSION['course_code'];
+        //Method for getting url variables and pass them as session variables.
+        $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $url_components = parse_url($url);
+        parse_str($url_components['query'],$params);
+        session_start();
+        $_SESSION['course_code'] = $params['course_code'];
         
-        /*if(!isset($_SESSION['batch_code']))
+        if(!isset($_SESSION['course_code']))
         {
-            header("Location:../admindashboard.php");
-        }*/
-        
-        
+            echo 'session variable not set';
+        }
         ?>
         
         
