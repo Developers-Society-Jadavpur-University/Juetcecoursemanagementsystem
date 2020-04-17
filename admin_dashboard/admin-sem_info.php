@@ -9,7 +9,7 @@
         <script type="text/javascript" src="../jquery_ui/js/jquery.min.js"></script>
         <script type="text/javascript" src="../jquery_ui/js/jquery.easyui.min.js"></script>
     </head>
-    <body>
+    <body style="margin: -1.5%;">
         
 
         <div class="easyui-panel" style="height:350px;width:80%;padding:5px;">
