@@ -7,8 +7,10 @@ $email = htmlspecialchars($_REQUEST['email']);
 $course_code= $_SESSION['course_code'];
 
 include '../includes/dbh.inc.php';
-
-    $sql = "SELECT * FROM batch_info WHERE course_code='$course_code'";
+       session_start();
+       $course_code = $_SESSION['course_code'];
+	
+	$sql = "SELECT * FROM batch_info WHERE course_code='$course_code'";
 	$result= mysqli_query($conn,$sql);
 	while($row = $result->fetch_assoc())
 	{
@@ -17,6 +19,7 @@ include '../includes/dbh.inc.php';
 		$faculty = $row["faculty"];
 	}
 	
+
 	if($phoneno!=null && $email!=null)
 	{
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)){
