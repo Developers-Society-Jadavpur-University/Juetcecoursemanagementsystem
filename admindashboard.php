@@ -9,7 +9,10 @@
     <?php 
         require "header.php";
         require "prevent_login.php";
+        require "prevent_protocols/prevent_students.php";
+        require "prevent_protocols/prevent_faculty.php";
         require "admin_dashboard/cms-nav_admin.php";
+        
 
         if(isset($_GET['login']))
         {
@@ -17,6 +20,14 @@
                 
                 echo "<script>window.alert('Login was successful!');</script>";
                 echo "<h4> Welcome ".$_SESSION['uid']." to the admin dashboard!</h4>";
+                
+            }
+        }
+        if(isset($_GET['notice_issue']))
+        {
+            if ($_GET['notice_issue'] =='success'){
+                
+                echo "<script>window.alert('Notice issue was successful!');</script>";
                 
             }
         }
