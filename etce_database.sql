@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 16, 2020 at 04:50 PM
+-- Generation Time: Apr 17, 2020 at 03:01 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -40,6 +40,31 @@ CREATE TABLE `addressDetails` (
 
 INSERT INTO `addressDetails` (`uname`, `rno`, `permanentAdd`, `correspondenceAdd`) VALUES
 ('Arijit Saha', '001910701019', 'I/51A Baghajatin  Kolkata 700092', 'I/51A Baghajatin  Kolkata 700092');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `batch_info`
+--
+
+CREATE TABLE `batch_info` (
+  `course_code` char(15) NOT NULL,
+  `course_name` char(30) NOT NULL,
+  `department` char(50) NOT NULL,
+  `faculty` char(50) NOT NULL,
+  `start_year` year(4) NOT NULL,
+  `end_year` year(4) NOT NULL,
+  `status_course` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `batch_info`
+--
+
+INSERT INTO `batch_info` (`course_code`, `course_name`, `department`, `faculty`, `start_year`, `end_year`, `status_course`) VALUES
+('BETC1822', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2018, 2022, 1),
+('BETC1923', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2019, 2023, 1),
+('BETC2024', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2020, 2024, 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +126,7 @@ CREATE TABLE `personalDetails` (
   `rno` char(12) NOT NULL,
   `dob` date NOT NULL,
   `bloodGrp` char(3) NOT NULL,
-  `yJoin` int(11) NOT NULL,
+  `yJoin` year(4) NOT NULL,
   `yStudy` varchar(5) NOT NULL,
   `Stream` text NOT NULL,
   `Gender` tinytext NOT NULL,
@@ -218,7 +243,7 @@ CREATE TABLE `stu_notice` (
   `date_time_expiry` datetime NOT NULL,
   `notice` varchar(500) NOT NULL,
   `file_id` varchar(10) NOT NULL,
-  `notice_visible` varchar(10) NOT NULL,
+  `notice_visible` longtext NOT NULL,
   `notice_status` varchar(10) NOT NULL DEFAULT 'open'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -231,8 +256,8 @@ INSERT INTO `stu_notice` (`notice_id`, `date_time_create`, `date_time_expiry`, `
 ('etc/2', '2020-04-17 04:51:22', '2020-04-18 00:00:00', 'This is a test notice ', '', 'ALL', 'open'),
 ('etc/3', '2020-04-17 05:01:59', '2020-04-18 00:00:00', 'This is second test notice without file and it is archived', '', 'BETC1923', 'archived'),
 ('etc/4', '2020-04-16 19:07:29', '2020-04-16 19:09:00', 'New Notice', '', 'ALL', 'archived'),
-('etc/5', '2020-04-16 19:48:39', '2020-04-16 19:50:00', 'Notice', '1', 'ALL', 'archived'),
-('etc/6', '2020-04-16 20:07:08', '2020-04-16 23:00:00', 'This is for UG students', '2', 'ALL', 'open');
+('etc/5', '2020-04-17 14:28:53', '2020-04-17 00:00:00', 'This is a notice', '', 'Array', 'archived'),
+('etc/6', '2020-04-17 15:30:57', '2020-04-17 00:00:00', 'This is a notice for UG 1/2 students', '', 'BETC1822,BETC1923', 'archived');
 
 -- --------------------------------------------------------
 
@@ -279,7 +304,8 @@ CREATE TABLE `users_staff` (
 
 INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
 (1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$IUcRnnbqP/fcwhEbE80Vae33qGw/djqPCHY3uWaNFPx2K8QW4DKXC'),
-(2, 'AYAN BISWAS', 'ayanbiswas184@gmail.com', 'faculty', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG');
+(2, 'AYAN BISWAS', 'ayanbiswas184@gmail.com', 'faculty', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG'),
+(3, 'Arijit Saha', 'arijitfeb01@gmail.com', 'faculty', '1235');
 
 --
 -- Indexes for dumped tables
@@ -290,6 +316,12 @@ INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
 --
 ALTER TABLE `addressDetails`
   ADD PRIMARY KEY (`rno`);
+
+--
+-- Indexes for table `batch_info`
+--
+ALTER TABLE `batch_info`
+  ADD PRIMARY KEY (`course_code`);
 
 --
 -- Indexes for table `notice_uploads`
