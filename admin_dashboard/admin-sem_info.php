@@ -11,7 +11,7 @@
         <script type="text/javascript" src="../jquery_ui/js/jquery.min.js"></script>
         <script type="text/javascript" src="../jquery_ui/js/jquery.easyui.min.js"></script>
     </head>
-    <body>
+    <body style="margin: -1.5%;">
         
 
       <div style="margin: auto;width: 80%; border: 3px solid white; padding: 10px;">

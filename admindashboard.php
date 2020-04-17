@@ -20,7 +20,7 @@
             if ($_GET['login'] =='success'){
                 
                 echo "<script>window.alert('Login was successful!');</script>";
-                echo "<h4> Welcome ".$_SESSION['uid']." to the admin dashboard!</h4>";
+                echo "<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome ".$_SESSION['uid']." to the admin dashboard!</h4>";
                 
             }
         }
@@ -28,7 +28,7 @@
     
     ?>
         <div class="profile-content">
-        <h4>Welcome to Electronics and Telecommunication Engineering Department Course Management System </h4>
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to Electronics and Telecommunication Engineering Department Course Management System </h4>
         </div>
     
     <?php
