@@ -14,23 +14,15 @@
    
     <ul class="header" style="background-color: orange;" >
         
-<<<<<<< HEAD
-    <li><a href="../admindashboard.php" style="color:black;">Batch Info</a></li>    
-    <li><div class="dropdown">
-           <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;<i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
-          <div id="myDropdown" class="dropdown-content">
-           <a href="#">Issue New Notice</a>
-=======
 
 
-        <li><a href="../admin_dashboard/admin-sem_info.php" style="color:black;">Batch Info</a></li>  
+        <li><a href="../admindashboard.php" style="color:black;">Batch Info</a></li>  
         <li><div class="dropdown">
            <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;
            <i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
           <div id="myDropdown" class="dropdown-content myDropdown">
            <a href="../admin_dashboard/issue_new_notice_admin.php?task=issue">Issue New Notice</a>
 
->>>>>>> fab2df366a9c56bf3e9eedfdd179dd71019e3d43
            <a href="../admin_dashboard/issued-notice_admin.php">Issued Notice</a>
            <a href="../admin_dashboard/archived-notice_admin.php">Archived Notice</a>
           
