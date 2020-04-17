@@ -18,9 +18,16 @@
     DEPARTMENT OF ELECTRONICS AND TELECOMMUNICATION ENGINEERING <br>JADAVPUR UNIVERSITY
     </h4>
         <?php
+
+            require "includes/dbh.inc.php";
+            // $sql = "SELECT date_time_expiry FROM stu_notice;";
+            // $result = mysqli_query($conn,$sql);
+            // $row = mysqli_fetch_assoc($result);
+            $sql = "UPDATE stu_notice SET notice_status='archived' WHERE date_time_expiry<=NOW()";
+            mysqli_query($conn, $sql);
+
             if(isset($_SESSION['uid']) && isset($_SESSION['roll'])) {
 
-                require "includes/dbh.inc.php";
                 $sql = "SELECT * FROM profileimg WHERE user_rno=?;";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -78,11 +85,15 @@
         var button = document.getElementById("login");
         var div = document.getElementById("login-type-div");
         var ul = document.getElementById("login-type-ul");
-        button.addEventListener("click", function(){ div.style.display = "initial"; });
-        button.addEventListener("click", function(){ div.style.display = "none"; });
+        if (button !== null){
+            button.addEventListener("click", function(){ div.style.display = "initial"; });
+            button.addEventListener("click", function(){ div.style.display = "none"; });
+        }
         div.addEventListener("click", function(){ div.style.display = "initial"; });
         div.addEventListener("click", function(){ div.style.display = "none"; });
-        button.addEventListener("click", displayLoginType);
+        if (button !== null){
+            button.addEventListener("click", displayLoginType);
+        }
         function displayLoginType(){
             if (div.style.display == "none"){
                 div.style.display = "initial";

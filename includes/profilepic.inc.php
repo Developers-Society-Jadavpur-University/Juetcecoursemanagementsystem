@@ -23,7 +23,7 @@
             if ($fileError === 0){
                 if($fileSize < 500000){
                     $fileNameNew = "profile".$_SESSION['roll'].".".$fileActualExt;
-                    $fileDestination = '/opt/lampp/htdocs/uploads/'.$fileNameNew;
+                    $fileDestination = '../uploads/'.$fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
                     $sql = "UPDATE profileimg SET status_name = 0, ext = ? WHERE user_rno =?;";
                     $stmt = mysqli_stmt_init($conn);
@@ -45,4 +45,28 @@
         }else{
             echo "You cannot upload files of this type!";
         }
+    }
+    if(isset($_POST['delete-pic-submit'])){
+        require "dbh.inc.php";
+        $roll = $_SESSION['roll'];
+        $filename ="../uploads/profile".$roll."*";
+        $fileInfo = glob($filename);
+        print_r($fileInfo);
+        $fileExt = explode(".", $fileInfo[0]);
+        $fileActualExt = end($fileExt);
+        $file = "../uploads/profile".$roll.".".$fileActualExt;
+        if(!unlink($file)){
+            echo "Try Again!";
+            exit();
+        }else{
+            $sql = "UPDATE profileimg SET status_name = 1";
+            if ($result = mysqli_query($conn,$sql)){
+                header("Location: ../profilepic.php?delete=success");
+                exit();
+            }else{
+                echo "Try Again!";
+                exit();
+            }
+        }
+
     }
