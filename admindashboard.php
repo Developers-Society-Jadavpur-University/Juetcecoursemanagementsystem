@@ -24,6 +24,14 @@
                 
             }
         }
+        if(isset($_GET['notice_issue']))
+        {
+            if ($_GET['notice_issue'] =='success'){
+                
+                echo "<script>window.alert('Notice issue was successful!');</script>";
+                
+            }
+        }
         
     
     ?>
