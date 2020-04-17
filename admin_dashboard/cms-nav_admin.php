@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
 </head>
 <body>
     <?php
@@ -14,9 +14,10 @@
     <ul class="header" style=" background-color: orange;" >
         
         <li><div class="dropdown">
-           <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;<i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
-          <div id="myDropdown" class="dropdown-content">
-           <a href="#">Issue New Notice</a>
+           <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;
+           <i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
+          <div id="myDropdown" class="dropdown-content myDropdown">
+           <a href="../admin_dashboard/issue_new_notice_admin.php?task=issue">Issue New Notice</a>
            <a href="../admin_dashboard/issued-notice_admin.php">Issued Notice</a>
            <a href="../admin_dashboard/archived-notice_admin.php">Archived Notice</a>
           
@@ -52,16 +53,16 @@ toggle between hiding and showing the dropdown content */
 function dropdownfunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-function dropdownfunction_semester() {
-    document.getElementById("myDropdown_semester").classList.toggle("show");
-}
-function dropdownfunction_notice() {
-    document.getElementById("myDropdown_notice").classList.toggle("show");
-}
+// function dropdownfunction_semester() {
+//     document.getElementById("myDropdown_semester").classList.toggle("show");
+// }
+// function dropdownfunction_notice() {
+//     document.getElementById("myDropdown_notice").classList.toggle("show");
+// }
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('#prof_menu')) {
-    var dropdowns = document.getElementsById("myDropdown");
+    var dropdowns = document.getElementsByClassName("myDropdown");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -71,30 +72,30 @@ window.onclick = function(event) {
     }
   }
 }
-window.onclick = function(event) {
-  if (!event.target.matches('#sem_menu')) {
-    var dropdowns = document.getElementsById("myDropdown_semester");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-window.onclick = function(event) {
-  if (!event.target.matches('#notice_menu')) {
-    var dropdowns = document.getElementsById("myDropdown_notice");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+// window.onclick = function(event) {
+//   if (!event.target.matches('#sem_menu')) {
+//     var dropdowns = document.getElementsByClassName("myDropdown_semester");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
+// window.onclick = function(event) {
+//   if (!event.target.matches('#notice_menu')) {
+//     var dropdowns = document.getElementsByClassName("myDropdown_notice");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
 
 
 </script>  

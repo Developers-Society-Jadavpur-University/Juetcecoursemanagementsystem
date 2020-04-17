@@ -37,7 +37,8 @@
 						   //echo $course_code;  
 						 
 						   $count = 0;
-                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE (notice_visible='ALL' OR notice_visible='$course_code') AND (notice_status='open')");
+                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE (notice_visible='ALL' OR (notice_visible LIKE 
+						   '%$course_code%')) AND (notice_status='open')");
 						   foreach($query as $row)
 						   {
                            $count++;
@@ -45,7 +46,7 @@
 								
 								
 								<?php echo '<tr>'?>
-									<td class="column1 flash"><?php echo $row["date_time"];?></td>
+									<td class="column1 flash"><?php echo $row["date_time_create"];?></td>
 									<td class="column2 flash"><?php echo $row["notice"];?></td>
 									<td class="column3 flash">
 									<?php
@@ -55,7 +56,14 @@
 									    }
 									    else{
 										//Add proper file link here by proper query.
-											echo '<a href="../#">Click here for details</a>';
+											$id = $row['file_id'];
+											$noticeLink = explode("/",$row['notice_id']);
+											$result = mysqli_query($conn,"SELECT * FROM notice_uploads WHERE file_id = $id");
+											$row_new = mysqli_fetch_assoc($result);
+											$format = $row_new['extension'];
+											$link = "../notice_uploads/notice".".".$noticeLink[0]."_".$noticeLink[1].".".$id.".".$format;
+
+											echo '<a href='.$link.'>Click here for details</a>';
 									    }
 
 									?>
