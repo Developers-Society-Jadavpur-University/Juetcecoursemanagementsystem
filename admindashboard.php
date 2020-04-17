@@ -13,6 +13,7 @@
         require "prevent_protocols/prevent_faculty.php";
         require "admin_dashboard/cms-nav_admin.php";
         
+        
 
         if(isset($_GET['login']))
         {
@@ -30,8 +31,13 @@
         <h4>Welcome to Electronics and Telecommunication Engineering Department Course Management System </h4>
         </div>
     
+    <?php
+    require "admin_dashboard/admin-sem_info.php";
+    
+    ?>
     
     <?php
+        
         require "footer.php";
     ?>
 </body>

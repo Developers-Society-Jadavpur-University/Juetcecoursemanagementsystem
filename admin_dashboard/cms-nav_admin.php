@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -11,9 +11,10 @@
 
     ?>
    
-    <ul class="header" style=" background-color: orange;" >
+    <ul class="header" style="background-color: orange;" >
         
-        <li><div class="dropdown">
+    <li><a href="../admin_dashboard/admin-sem_info.php" style="color:black;">Batch Info</a></li>    
+    <li><div class="dropdown">
            <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;<i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
           <div id="myDropdown" class="dropdown-content">
            <a href="#">Issue New Notice</a>
@@ -23,6 +24,7 @@
           </div>
          </div>
         </li>
+        
         <!--<li><div class="dropdown">
              <button id="sem_menu" onclick="dropdownfunction_semester()" class="dropbtn">Semester Info &nbsp;<i onclick="dropdownfunction_semester()" class="arrow down-arrow"></i></button>
             <div id="myDropdown_semester" class="dropdown-content">
