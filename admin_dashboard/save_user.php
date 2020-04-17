@@ -4,7 +4,7 @@ $Full_name = htmlspecialchars($_REQUEST['Full_name']);
 $phoneno = htmlspecialchars($_REQUEST['phoneno']);
 $email = htmlspecialchars($_REQUEST['email']);
 //Add this dynamically
-$course_code='BETC1923';
+$course_code= $_SESSION['course_code'];
 
 include '../includes/dbh.inc.php';
 

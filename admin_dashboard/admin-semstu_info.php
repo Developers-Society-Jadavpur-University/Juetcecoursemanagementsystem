@@ -9,6 +9,16 @@
         <script type="text/javascript" src="../jquery_ui/js/jquery.easyui.min.js"></script>
     </head>
     <body>
+        <?php
+        $course_code = $_SESSION['course_code'];
+        
+        /*if(!isset($_SESSION['batch_code']))
+        {
+            header("Location:../admindashboard.php");
+        }*/
+        
+        
+        ?>
         
         
 

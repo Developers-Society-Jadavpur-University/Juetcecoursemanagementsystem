@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=0">
     <link rel="stylesheet" type="text/css" href="styles.css">
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+
+>>>>>>> 0dd0ab3d01eeb9907aeb39114a5c541e8939f0cd
 </head>
 <body>
     <?php
@@ -13,11 +19,23 @@
    
     <ul class="header" style="background-color: orange;" >
         
+<<<<<<< HEAD
     <li><a href="../admin_dashboard/admin-sem_info.php" style="color:black;">Batch Info</a></li>    
     <li><div class="dropdown">
            <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;<i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
           <div id="myDropdown" class="dropdown-content">
            <a href="#">Issue New Notice</a>
+=======
+
+
+        <li><a href="../admindashboard.php" style="color:black;">Batch Info</a></li>  
+        <li><div class="dropdown">
+           <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;
+           <i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
+          <div id="myDropdown" class="dropdown-content myDropdown">
+           <a href="../admin_dashboard/issue_new_notice_admin.php?task=issue">Issue New Notice</a>
+
+>>>>>>> 0dd0ab3d01eeb9907aeb39114a5c541e8939f0cd
            <a href="../admin_dashboard/issued-notice_admin.php">Issued Notice</a>
            <a href="../admin_dashboard/archived-notice_admin.php">Archived Notice</a>
           

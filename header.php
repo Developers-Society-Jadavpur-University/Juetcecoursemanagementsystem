@@ -61,8 +61,8 @@
                 <li><a href="archive.php">Archive</a></li>
                 <?php
                     if(isset($_SESSION['uid'])){
-                        echo'<button class="submit-buttons entry" type="submit" name="logout" style="float : right;">
-                            <a class="sub" href = "../includes/logout.inc.php"><b>Logout</b></a></button></li>';
+                        echo'<button class="submit-buttons entry" type="submit" name="logout" style="float : right; margin-right: 15px;">
+                            <a class="sub" href = "includes/logout.inc.php"><b>Logout</b></a></button>';
                     }
                     else if(!isset($_SESSION['uid'])){
                         echo'<button class="submit-buttons entry login" id="login" type="submit" name="login" style="float : right;">
