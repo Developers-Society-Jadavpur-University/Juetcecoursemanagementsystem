@@ -37,8 +37,8 @@
 						   //echo $course_code;  
 						 
 						   $count = 0;
-                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE (notice_visible='ALL' OR notice_visible='$course_code')
-						    AND (notice_status='open')");
+                           $query = mysqli_query($conn,"SELECT * FROM stu_notice WHERE (notice_visible='ALL' OR (notice_visible LIKE 
+						   '%$course_code%')) AND (notice_status='open')");
 						   foreach($query as $row)
 						   {
                            $count++;

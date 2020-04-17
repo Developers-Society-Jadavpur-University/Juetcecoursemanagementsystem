@@ -14,7 +14,35 @@
         if(isset($_POST['attach'])){
             $checkbox = $_POST['attach'];
         }
-        $visibility = "ALL"/*$_POST['visibility']*/;
+        $visibility_tmp = array();
+        if(array_key_exists('STUDENT_ALL', $_POST)){
+            array_push($visibility_tmp,$_POST['STUDENT_ALL']);
+        }else{
+            require "../includes/dbh.inc.php";
+            $result = mysqli_query($conn, "SELECT course_code FROM batch_info WHERE status_course=1");
+            while($row = mysqli_fetch_assoc($result)){
+                $offset = $row['course_code'];
+                if(array_key_exists($offset, $_POST)){
+                    array_push($visibility_tmp,$offset);
+                }
+            }
+        }
+        if(array_key_exists('FACULTY_ALL', $_POST)){
+            array_push($visibility_tmp,$_POST['FACULTY_ALL']);
+        }else{
+            require "../includes/dbh.inc.php";
+            $result = mysqli_query($conn, "SELECT uname FROM users_staff WHERE staff_role='faculty'");
+            while($row = mysqli_fetch_assoc($result)){
+                $offset = $row['uname'];
+                $offset_name = strtolower(trim($offset));
+                $offset_name = str_replace(' ','',$offset_name);
+                if(array_key_exists($offset_name, $_POST)){
+                    array_push($visibility_tmp,$offset);
+                }
+            }
+        }
+
+        $visibility = implode(",", $visibility_tmp);
         $datetimeExp = $_POST['exp_date']." ".$_POST['exp_time'];
         $date_time = date("Y-m-d H:i:s");
         $fileId = "";

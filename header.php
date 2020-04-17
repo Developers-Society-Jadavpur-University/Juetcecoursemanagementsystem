@@ -85,11 +85,15 @@
         var button = document.getElementById("login");
         var div = document.getElementById("login-type-div");
         var ul = document.getElementById("login-type-ul");
-        button.addEventListener("click", function(){ div.style.display = "initial"; });
-        button.addEventListener("click", function(){ div.style.display = "none"; });
+        if (button !== null){
+            button.addEventListener("click", function(){ div.style.display = "initial"; });
+            button.addEventListener("click", function(){ div.style.display = "none"; });
+        }
         div.addEventListener("click", function(){ div.style.display = "initial"; });
         div.addEventListener("click", function(){ div.style.display = "none"; });
-        button.addEventListener("click", displayLoginType);
+        if (button !== null){
+            button.addEventListener("click", displayLoginType);
+        }
         function displayLoginType(){
             if (div.style.display == "none"){
                 div.style.display = "initial";
