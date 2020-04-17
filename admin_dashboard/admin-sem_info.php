@@ -1,8 +1,10 @@
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
-        <title>semester action</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=0">
         <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
         <link rel="stylesheet" type="text/css" href="../jquery_ui/css/icon.css">
         <link rel="stylesheet" type="text/css" href="../jquery_ui/css/demo.css">
@@ -12,12 +14,12 @@
     <body>
         
 
-        <div class="easyui-panel" style="height:350px;width:80%;padding:5px;">
-        <div id="p" class="easyui-panel" title="Batch Actions" style="width:100%;height:100%;padding:10px;"
+      <div style="margin: auto;width: 80%; border: 3px solid white; padding: 10px;">
+        <div id="p" class="easyui-panel" title="Batch Actions" style="width:100%;height:350px;padding:5px;"
                 data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false">
             
               <!--Table for the semester informations-->
-              <table id="dg" title="All Batches" class="easyui-datagrid" style="width:100%;height:100%;"
+        <table id="dg" title="All Batches" class="easyui-datagrid" style="width:100%;height:100%;"
                 url="../admin_dashboard/get_batches.php" 
                 toolbar="#toolbar" pagination="true"
                 rownumbers="true" fitColumns="true" singleSelect="true">
@@ -65,7 +67,7 @@
                   <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
                   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
                </div>
-               <script src="../admin_dashboard/admin-seminfo.js"></script>
+               
 
 
 
@@ -73,19 +75,13 @@
 
 
               <!--Table Ends here -->
-
-         
-
-
-
-
-        </div>
-       
+            </div>
+   </div>
             
             
             
              
-        
+    <script src="../admin_dashboard/admin-seminfo.js"></script>   
     </body>
     </html>
 

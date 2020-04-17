@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../styles.css">
+
 </head>
 <body>
     <?php
@@ -11,19 +12,24 @@
 
     ?>
    
-    <ul class="header" style=" background-color: orange;" >
+    <ul class="header" style="background-color: orange;" >
         
+
+
+        <li><a href="../admin_dashboard/admin-sem_info.php" style="color:black;">Batch Info</a></li>  
         <li><div class="dropdown">
            <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;
            <i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
           <div id="myDropdown" class="dropdown-content myDropdown">
            <a href="../admin_dashboard/issue_new_notice_admin.php?task=issue">Issue New Notice</a>
+
            <a href="../admin_dashboard/issued-notice_admin.php">Issued Notice</a>
            <a href="../admin_dashboard/archived-notice_admin.php">Archived Notice</a>
           
           </div>
          </div>
         </li>
+        
         <!--<li><div class="dropdown">
              <button id="sem_menu" onclick="dropdownfunction_semester()" class="dropbtn">Semester Info &nbsp;<i onclick="dropdownfunction_semester()" class="arrow down-arrow"></i></button>
             <div id="myDropdown_semester" class="dropdown-content">

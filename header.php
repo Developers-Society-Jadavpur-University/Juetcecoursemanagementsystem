@@ -53,7 +53,7 @@
             }
         ?>
     </h6>
-    <nav>
+    <nav style="padding: 0px">
         <span>
             <ul class="header" style=" background-color: yellow;" >
                 <li><a href="index.php">Home</a></li>
