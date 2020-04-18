@@ -13,7 +13,7 @@
 </head>
 <body id="body">
     
-    <a href="index.php"><img class="logo" src="image/julogo.png" style="height: 50px; width: 50px;"/></a>
+    <a href="../index.php"><img class="logo" src="../image/julogo.png" style="height: 50px; width: 50px;"/></a>
     <h4 class="header" style = "text-align: center;" >
     DEPARTMENT OF ELECTRONICS AND TELECOMMUNICATION ENGINEERING <br>JADAVPUR UNIVERSITY
     </h4>
