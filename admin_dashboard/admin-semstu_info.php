@@ -28,13 +28,45 @@
         ?>
         
         
+        
 
        
-        <div style="margin: auto;width: 80%; border: 3px solid white; padding: 10px;">
-        <table id="dg" title="All Students" class="easyui-datagrid" style="width:100%;height:100%;"
+        <div style="margin: auto;width: 100%; border: 3px solid white; padding: 10px; ">
+            <div id="p" class="easyui-panel" title="Welcome to Course Management System" style="width:100%;height:350px;padding:0px;"
+            data-options="iconCls:'icon-tip',collapsible:true,minimizable:false,maximizable:false,closable:false">
+             
+             <?php
+             $role = $_SESSION['role'];
+             $loggedin_name = $_SESSION['uid'];
+             if($role=='admin')
+             {
+                 $user_role = 'ADMIN';
+             }
+             
+             ?>
+
+
+             <p style="padding-left: 5px;"><b>Logged in as :</b> <?php echo $user_role?> </p>
+             <p style="padding-left: 5px;"><b>Logged in Name :</b> <?php echo $loggedin_name?>  </p>
+             &nbsp;&nbsp;<a href="../admindashboard.php" class="easyui-linkbutton" iconCls="icon-back">Back</a> 
+              
+             <div id="p" class="easyui-panel" title="Batch Selected <?php echo $_SESSION['course_code'] ?>" style="width:99%;height:200px;padding:0px;align-self: center;"
+             data-options="iconCls:'icon-tip',collapsible:true,minimizable:false,maximizable:false,closable:false">
+               <p style="font-size:14px; text-align: center;"><b>Select Options from the below to perform actions on the batch <?php echo $_SESSION['course_code'] ?></b></p>
+        
+             
+            
+             </div>
+
+
+
+            </div>
+        <br>
+        <table id="dg" title="All Students of the Selected Batch" class="easyui-datagrid" style="width:100%;height:auto;"
                 url="../admin_dashboard/get_users.php" 
                 toolbar="#toolbar" pagination="true"
                 rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
                 >
             <thead>
                 <tr>
