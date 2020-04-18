@@ -1,5 +1,7 @@
 <?php
-
+// Add this dynamically .
+session_start();
+$course_code = $_SESSION['course_code'];
 $id = intval($_REQUEST['id']);
 $roll_no = htmlspecialchars($_REQUEST['roll_no']);
 $Full_name = htmlspecialchars($_REQUEST['Full_name']);
@@ -8,7 +10,7 @@ $email = htmlspecialchars($_REQUEST['email']);
 
 include '../includes/dbh.inc.php';
 
-$sql = "UPDATE student_userdata SET roll_no='$roll_no',Full_name='$Full_name',phoneno='$phoneno',email='$email' WHERE roll_no='$roll_no'";
+$sql = "UPDATE student_userdata SET roll_no='$roll_no',Full_name='$Full_name',phoneno='$phoneno',email='$email' WHERE (roll_no='$roll_no' AND Course_code='$course_code')";
 mysqli_query($conn,$sql);
 echo json_encode(array(
 	'id' => $id,

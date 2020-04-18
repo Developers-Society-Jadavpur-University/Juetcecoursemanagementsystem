@@ -8,7 +8,7 @@
         <script type="text/javascript" src="../jquery_ui/js/jquery.min.js"></script>
         <script type="text/javascript" src="../jquery_ui/js/jquery.easyui.min.js"></script>
     </head>
-    <body>
+    <body style="margin: -1.5%;">
         <?php
         //Method for getting url variables and pass them as session variables.
         $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -21,16 +21,21 @@
         {
             echo 'session variable not set';
         }
+        require "../prevent_login.php";
+        require "../prevent_protocols/prevent_students.php";
+        require "../prevent_protocols/prevent_faculty.php";
+
         ?>
         
         
 
        
-
+        <div style="margin: auto;width: 80%; border: 3px solid white; padding: 10px;">
         <table id="dg" title="All Students" class="easyui-datagrid" style="width:100%;height:100%;"
                 url="../admin_dashboard/get_users.php" 
                 toolbar="#toolbar" pagination="true"
-                rownumbers="true" fitColumns="true" singleSelect="true">
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                >
             <thead>
                 <tr>
                     <th field="roll_no" width="50">Roll no</th>
@@ -66,6 +71,7 @@
         <div id="dlg-buttons">
             <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        </div>
         </div>
         <script type="text/javascript">
             var url;
