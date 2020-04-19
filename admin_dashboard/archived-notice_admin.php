@@ -17,19 +17,21 @@
         require "../header.php";
         require "../admin_dashboard/cms-nav_admin.php";
     ?>
-
-    <table id="arch" title="Archived Notices" class="easyui-datagrid" style="width:100%;height:100%;"
+    <div style="margin: auto;width: 98%;height: 800px; border: 3px solid white; padding: 10px;">
+    <table id="dg" title="Archived Notices" class="easyui-datagrid" style="width:100%;height:98%;"
                 url="../admin_dashboard/archived-notice_admin.php" 
                 toolbar="#toolbar" pagination="true"
-                rownumbers="true" fitColumns="true" singleSelect="true">
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-tip',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
             <thead>
                 <tr>
-                    <th field="notice_id" width="50">Notice ID</th>
-                    <th field="date_time_create" width="50">Issue DateTime</th>
-                    <th field="date_time_expiry" width="50">Expiry DateTime</th>
+                    <th field="notice_id" width="10">Notice ID</th>
+                    <th field="date_time_create" width="10">Issue DateTime</th>
+                    <th field="date_time_expiry" width="10">Expiry DateTime</th>
                     <th field="notice" width="50">Notice</th>
-                    <th field="remarks" width="50">Remarks</th>
-                    <th field="visibility" width="50">Visibility</th>
+                    <th field="remarks" width="13">Remarks</th>
+                    <th field="visibility" width="13">Visibility</th>
 .                </tr>
             </thead>
             <?php
@@ -62,13 +64,14 @@
         </table>
 
         <div id="toolbar">
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyNotice();">
-            Remove Notice</a>
+            <!--<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyNotice()">
+            Delete Notice</a>-->
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyNotice()">Delete Notice</a>
         </div>
-
+            </div>
         <script type="text/javascript">
             function destroyNotice(){
-            var row = $('#arch').datagrid('getSelected');
+            var row = $('#dg').datagrid('getSelected');
             if (row){
                 $.messager.confirm('Confirm','Are you sure you want to remove this notice from archived section also ?',function(r){
                     if (r){

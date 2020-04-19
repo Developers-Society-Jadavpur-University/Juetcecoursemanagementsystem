@@ -22,14 +22,22 @@ if(!unlink($file)){
     exit();
 }else{
 $sql = "DELETE FROM notice_uploads WHERE 'file_id'='$id'";
-mysqli_query($conn,$sql);}
+mysqli_query($conn,$sql);
+
 echo json_encode(array(
-	'notice_id' => $notice_id,
+	/*'notice_id' => $notice_id,
     'date_time_create' => $date_time_create,
     'date_time_expiry' => $date_time_expiry,
 	'notice' => $notice,
     'remarks' => $remarks,
-    'visibility'=>$visibility,
-	'success'=>true,
+    'visibility'=>$visibility,*/
+	'success'=>true
 ));
+
+
+
+
+
+}
+
 ?>
