@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5deb1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 17, 2020 at 03:01 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Host: localhost:3306
+-- Generation Time: Apr 20, 2020 at 01:33 PM
+-- Server version: 8.0.19-0ubuntu0.19.10.3
+-- PHP Version: 7.3.11-0ubuntu0.19.10.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +33,7 @@ CREATE TABLE `addressDetails` (
   `rno` char(12) NOT NULL,
   `permanentAdd` longtext NOT NULL,
   `correspondenceAdd` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `addressDetails`
@@ -52,10 +53,10 @@ CREATE TABLE `batch_info` (
   `course_name` char(30) NOT NULL,
   `department` char(50) NOT NULL,
   `faculty` char(50) NOT NULL,
-  `start_year` year(4) NOT NULL,
-  `end_year` year(4) NOT NULL,
-  `status_course` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `start_year` year NOT NULL,
+  `end_year` year NOT NULL,
+  `status_course` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `batch_info`
@@ -64,7 +65,9 @@ CREATE TABLE `batch_info` (
 INSERT INTO `batch_info` (`course_code`, `course_name`, `department`, `faculty`, `start_year`, `end_year`, `status_course`) VALUES
 ('BETC1822', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2018, 2022, 1),
 ('BETC1923', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2019, 2023, 1),
-('BETC2024', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2020, 2024, 1);
+('BETC2024', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2020, 2024, 1),
+('BETC2125', 'Bahcelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2021, 2025, 1),
+('METC1921', 'Master of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 2019, 2021, 1);
 
 -- --------------------------------------------------------
 
@@ -75,7 +78,7 @@ INSERT INTO `batch_info` (`course_code`, `course_name`, `department`, `faculty`,
 CREATE TABLE `notice_uploads` (
   `file_id` varchar(10) NOT NULL,
   `extension` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `notice_uploads`
@@ -83,7 +86,8 @@ CREATE TABLE `notice_uploads` (
 
 INSERT INTO `notice_uploads` (`file_id`, `extension`) VALUES
 ('1', 'pdf'),
-('2', 'pdf');
+('2', 'pdf'),
+('1', 'pdf');
 
 -- --------------------------------------------------------
 
@@ -106,7 +110,7 @@ CREATE TABLE `parentDetails` (
   `mOccu` text NOT NULL,
   `parentOfficeAdd` longtext NOT NULL,
   `parentOfficeTel` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `parentDetails`
@@ -126,7 +130,7 @@ CREATE TABLE `personalDetails` (
   `rno` char(12) NOT NULL,
   `dob` date NOT NULL,
   `bloodGrp` char(3) NOT NULL,
-  `yJoin` year(4) NOT NULL,
+  `yJoin` int NOT NULL,
   `yStudy` varchar(5) NOT NULL,
   `Stream` text NOT NULL,
   `Gender` tinytext NOT NULL,
@@ -135,7 +139,7 @@ CREATE TABLE `personalDetails` (
   `wbjeePhyChem` decimal(10,2) NOT NULL,
   `stuEmail` text NOT NULL,
   `stuContact` char(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `personalDetails`
@@ -151,11 +155,11 @@ INSERT INTO `personalDetails` (`uname`, `rno`, `dob`, `bloodGrp`, `yJoin`, `yStu
 --
 
 CREATE TABLE `profileimg` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `user_rno` char(12) NOT NULL,
-  `status_name` int(11) NOT NULL,
+  `status_name` int NOT NULL,
   `ext` tinytext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `profileimg`
@@ -163,24 +167,24 @@ CREATE TABLE `profileimg` (
 
 INSERT INTO `profileimg` (`id`, `user_rno`, `status_name`, `ext`) VALUES
 (2, '001910701019', 0, 'jpg'),
-(4, '001910701012', 1, 'jpg'),
-(5, '001910701012', 1, 'jpg'),
-(6, '001910701012', 1, 'jpg'),
-(7, '001910701012', 1, 'jpg'),
-(8, '001910701012', 1, 'jpg'),
-(9, '001910701012', 1, 'jpg'),
-(10, '001910701012', 1, 'jpg'),
-(11, '001910701012', 1, 'jpg'),
-(12, '001910701012', 1, 'jpg'),
-(13, '001910701012', 1, 'jpg'),
-(14, '001910701012', 1, 'jpg'),
-(15, '001910701012', 1, 'jpg'),
-(16, '001910701012', 1, 'jpg'),
-(17, '001910701012', 1, 'jpg'),
-(18, '001910701012', 1, 'jpg'),
-(19, '001910701012', 1, 'jpg'),
-(20, '001910701012', 1, 'none'),
-(21, '001910701012', 1, 'none'),
+(4, '001910701012', 0, 'png'),
+(5, '001910701012', 0, 'png'),
+(6, '001910701012', 0, 'png'),
+(7, '001910701012', 0, 'png'),
+(8, '001910701012', 0, 'png'),
+(9, '001910701012', 0, 'png'),
+(10, '001910701012', 0, 'png'),
+(11, '001910701012', 0, 'png'),
+(12, '001910701012', 0, 'png'),
+(13, '001910701012', 0, 'png'),
+(14, '001910701012', 0, 'png'),
+(15, '001910701012', 0, 'png'),
+(16, '001910701012', 0, 'png'),
+(17, '001910701012', 0, 'png'),
+(18, '001910701012', 0, 'png'),
+(19, '001910701012', 0, 'png'),
+(20, '001910701012', 0, 'png'),
+(21, '001910701012', 0, 'png'),
 (22, '001910701016', 1, 'none'),
 (23, '001910701016', 1, 'none'),
 (24, '001910701016', 1, 'none');
@@ -192,18 +196,19 @@ INSERT INTO `profileimg` (`id`, `user_rno`, `status_name`, `ext`) VALUES
 --
 
 CREATE TABLE `pwdReset` (
-  `pwdResetId` int(11) NOT NULL,
+  `pwdResetId` int NOT NULL,
   `pwdResetEmail` text NOT NULL,
   `pwdResetSelector` text NOT NULL,
   `pwdResetToken` longtext NOT NULL,
   `pwdResetExpires` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `pwdReset`
 --
 
 INSERT INTO `pwdReset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdResetToken`, `pwdResetExpires`) VALUES
+(21, 'arijitfeb01@gmail.com', '83c7b7bf169c26de', '$2y$10$7aAaOFL2Q26NzT9W8sY9j.53tsL.VO5WIUysm5ooVByZD18Kp379y', '1586771868'),
 (22, 'ayanbiswas184@gmail.com', '4d7e18256bdd0d52', '$2y$10$OX5s6QRkzDnajtrCYHW7a.JzqQA3SSx1XzveXAxwBQ6dgU/cRcobu', '1586801057');
 
 -- --------------------------------------------------------
@@ -213,23 +218,31 @@ INSERT INTO `pwdReset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdR
 --
 
 CREATE TABLE `student_userdata` (
-  `roll_no` char(12) NOT NULL,
+  `roll_no` char(12) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `Full_name` varchar(60) NOT NULL,
-  `Course_code` varchar(10) NOT NULL,
-  `reg_status` varchar(1) NOT NULL DEFAULT 'N',
-  `course_name` varchar(50) NOT NULL,
-  `department` varchar(60) NOT NULL,
-  `faculty` varchar(40) NOT NULL DEFAULT 'Faculty of Engineering and Technology'
+  `phoneno` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `Course_code` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `reg_status` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT 'N',
+  `course_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `department` varchar(60) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `faculty` varchar(40) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT 'Faculty of Engineering and Technology'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='For initial db for the students';
 
 --
 -- Dumping data for table `student_userdata`
 --
 
-INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `Course_code`, `reg_status`, `course_name`, `department`, `faculty`) VALUES
-('001910701012', 'AYAN BISWAS', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
-('001910701016', 'ARINDAM MAJEE', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
-('001910701019', 'ARIJIT SAHA', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology');
+INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `phoneno`, `email`, `Course_code`, `reg_status`, `course_name`, `department`, `faculty`) VALUES
+('001910701012', 'AYAN BISWAS', '8777673298', 'ayanbiswas184@gmail.com', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910701013', 'SNEHASHIS BISWAS', '4525452564', 'snehashis@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910701014', 'SAGNIK BANERJEE', '8777673564', 'sagnik@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910701016', 'ARINDAM MAJEE', '8521623546', 'arindam@gmail.com', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910701019', 'ARIJIT SAHA ', '2564253257', 'arijit@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910702012', 'AYAN TEST', '9474828561', 'ayantest@gmail.com', 'METC1921', 'N', 'Master of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('002010701011', 'AYAN BISWAS', '8777673297', 'ayan20@gmail.com', '', 'N', '', '', ''),
+('002010701012', 'SAMPARK BISWAS', '5212521254', 'sampark@gmail.com', 'BETC2024', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('002010701016', 'TEST CANDIDATE', '123456789', 'testcandidate@gmail.com', 'BETC2024', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology');
 
 -- --------------------------------------------------------
 
@@ -238,26 +251,30 @@ INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `Course_code`, `reg_stat
 --
 
 CREATE TABLE `stu_notice` (
-  `notice_id` varchar(10) NOT NULL,
+  `notice_id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `date_time_create` datetime NOT NULL,
   `date_time_expiry` datetime NOT NULL,
   `notice` varchar(500) NOT NULL,
-  `file_id` varchar(10) NOT NULL,
-  `notice_visible` longtext NOT NULL,
-  `notice_status` varchar(10) NOT NULL DEFAULT 'open'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `file_id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `notice_visible` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `notice_status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'open'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `stu_notice`
 --
 
 INSERT INTO `stu_notice` (`notice_id`, `date_time_create`, `date_time_expiry`, `notice`, `file_id`, `notice_visible`, `notice_status`) VALUES
-('etc/1', '2020-04-16 04:17:49', '2020-04-18 00:00:00', 'This is to Notify all the students of Etce UG 1 to complete the registration in the course managament portal', '', 'BETC1923', 'open'),
-('etc/2', '2020-04-17 04:51:22', '2020-04-18 00:00:00', 'This is a test notice ', '', 'ALL', 'open'),
+('etc/1', '2020-04-16 04:17:49', '2020-04-18 00:00:00', 'This is to Notify all the students of Etce UG 1 to complete the registration in the course managament portal', '', 'BETC1923', 'archived'),
+('etc/10', '2020-04-17 19:35:12', '2020-04-18 00:00:00', 'This is the new syllabus', '1', 'BETC1923', 'archived'),
+('etc/2', '2020-04-17 04:51:22', '2020-04-18 00:00:00', 'This is a test notice ', '', 'ALL', 'archived'),
 ('etc/3', '2020-04-17 05:01:59', '2020-04-18 00:00:00', 'This is second test notice without file and it is archived', '', 'BETC1923', 'archived'),
 ('etc/4', '2020-04-16 19:07:29', '2020-04-16 19:09:00', 'New Notice', '', 'ALL', 'archived'),
 ('etc/5', '2020-04-17 14:28:53', '2020-04-17 00:00:00', 'This is a notice', '', 'Array', 'archived'),
-('etc/6', '2020-04-17 15:30:57', '2020-04-17 00:00:00', 'This is a notice for UG 1/2 students', '', 'BETC1822,BETC1923', 'archived');
+('etc/6', '2020-04-17 15:30:57', '2020-04-17 00:00:00', 'This is a notice for UG 1/2 students', '', 'BETC1822,BETC1923', 'archived'),
+('etc/7', '2020-04-17 19:13:04', '2020-04-18 00:00:00', 'This is to notify that class will commence from 13/06/19', '', 'STUDENT_ALL,FACULTY_ALL', 'archived'),
+('etc/8', '2020-04-17 19:15:22', '2020-04-18 00:00:00', 'Test will commence from 10:00 AM', '', 'BETC1923', 'archived'),
+('etc/9', '2020-04-17 19:34:04', '2020-04-18 00:00:00', 'This is notice regarding syllabus change', '', 'BETC1923', 'archived');
 
 -- --------------------------------------------------------
 
@@ -270,10 +287,10 @@ CREATE TABLE `users` (
   `rno` char(12) NOT NULL,
   `email` tinytext NOT NULL,
   `pwd` longtext NOT NULL,
-  `update_status1` int(11) NOT NULL,
-  `update_status2` int(11) NOT NULL,
-  `update_status3` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `update_status1` int NOT NULL,
+  `update_status2` int NOT NULL,
+  `update_status3` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
@@ -282,7 +299,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`uname`, `rno`, `email`, `pwd`, `update_status1`, `update_status2`, `update_status3`) VALUES
 ('AYAN BISWAS', '001910701012', 'ayanbiswas184@gmail.com', '$2y$10$M1OsU7Qqd/OmGN5iH.Ni5.gw2OXdLUGbQ1LhIK2qMlLRq6Ir5K7fq', 0, 0, 0),
 ('ARINDAM MAJEE', '001910701016', 'arindam@gmail.com', '$2y$10$CUozVbOJv41VPcD74srqK.WlJVeulP5MwXMVWirWw2a9jYHqJVBLW', 0, 0, 0),
-('Arijit Saha', '001910701019', 'arijitfeb01@gmail.com', '$2y$10$IUcRnnbqP/fcwhEbE80Vae33qGw/djqPCHY3uWaNFPx2K8QW4DKXC', 1, 1, 1);
+('Arijit Saha', '001910701019', 'arijitfeb01@gmail.com', '$2y$10$Yo9OnitJgHHmssE04OD4l.C3AabK8NUIku7jzwehzUsvCONdqwSky', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -291,21 +308,20 @@ INSERT INTO `users` (`uname`, `rno`, `email`, `pwd`, `update_status1`, `update_s
 --
 
 CREATE TABLE `users_staff` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `uname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `staff_role` varchar(10) NOT NULL,
+  `staff_role` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `pwd` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users_staff`
 --
 
 INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
-(1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$IUcRnnbqP/fcwhEbE80Vae33qGw/djqPCHY3uWaNFPx2K8QW4DKXC'),
-(2, 'AYAN BISWAS', 'ayanbiswas184@gmail.com', 'faculty', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG'),
-(3, 'Arijit Saha', 'arijitfeb01@gmail.com', 'faculty', '1235');
+(1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG'),
+(2, 'AYAN BISWAS', 'ayanbiswas184@gmail.com', 'faculty', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG');
 
 --
 -- Indexes for dumped tables
@@ -322,12 +338,6 @@ ALTER TABLE `addressDetails`
 --
 ALTER TABLE `batch_info`
   ADD PRIMARY KEY (`course_code`);
-
---
--- Indexes for table `notice_uploads`
---
-ALTER TABLE `notice_uploads`
-  ADD PRIMARY KEY (`file_id`);
 
 --
 -- Indexes for table `parentDetails`
@@ -385,13 +395,13 @@ ALTER TABLE `users_staff`
 -- AUTO_INCREMENT for table `profileimg`
 --
 ALTER TABLE `profileimg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pwdReset`
 --
 ALTER TABLE `pwdReset`
-  MODIFY `pwdResetId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
