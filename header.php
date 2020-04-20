@@ -13,7 +13,7 @@
 </head>
 <body id="body">
     
-    <a href="index.php"><img class="logo" src="image/julogo.png" style="height: 50px; width: 50px;"/></a>
+    <a href="../index.php"><img class="logo" src="../image/julogo.png" style="height: 50px; width: 50px;"/></a>
     <h4 class="header" style = "text-align: center;" >
     DEPARTMENT OF ELECTRONICS AND TELECOMMUNICATION ENGINEERING <br>JADAVPUR UNIVERSITY
     </h4>
@@ -53,7 +53,7 @@
             }
         ?>
     </h6>
-    <nav>
+    <nav style="padding: 0px">
         <span>
             <ul class="header" style=" background-color: yellow;" >
                 <li><a href="index.php">Home</a></li>
@@ -61,8 +61,8 @@
                 <li><a href="archive.php">Archive</a></li>
                 <?php
                     if(isset($_SESSION['uid'])){
-                        echo'<button class="submit-buttons entry" type="submit" name="logout" style="float : right;">
-                            <a class="sub" href = "../includes/logout.inc.php"><b>Logout</b></a></button></li>';
+                        echo'<button class="submit-buttons entry" type="submit" name="logout" style="float : right; margin-right: 15px;">
+                            <a class="sub" href = "includes/logout.inc.php"><b>Logout</b></a></button>';
                     }
                     else if(!isset($_SESSION['uid'])){
                         echo'<button class="submit-buttons entry login" id="login" type="submit" name="login" style="float : right;">

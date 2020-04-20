@@ -45,6 +45,7 @@ body{
     background-color : lightblue;
     color : red;
     z-index: 0;
+
 }
 a{
     text-decoration: none;
@@ -100,6 +101,7 @@ div.footer{
     border-top: 2px solid black;
     color: black;
     font-size: small;
+    
 }
 div.container{
     text-align: center;
@@ -272,6 +274,7 @@ h6.user{
 @media screen and (max-width: 1040px){
     .heading,.header, h4{
         font-size: 20px;
+        
     }
     body{
         font-size: 15px;
@@ -280,7 +283,10 @@ h6.user{
         font-size: 10px;
     }
     .header li{
-        padding: 7px;
+        padding: 0px;
+    }
+    .header ul{
+        padding: 0px;
     }
     button.entry{
         padding: 7px;

@@ -8,16 +8,77 @@
         <script type="text/javascript" src="../jquery_ui/js/jquery.min.js"></script>
         <script type="text/javascript" src="../jquery_ui/js/jquery.easyui.min.js"></script>
     </head>
-    <body>
+    <body style="margin: -1.5%;">
+        <?php
+        //Method for getting url variables and pass them as session variables.
+        $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $url_components = parse_url($url);
+        parse_str($url_components['query'],$params);
+        session_start();
+        $_SESSION['course_code'] = $params['course_code'];
+        
+        if(!isset($_SESSION['course_code']))
+        {
+            echo 'session variable not set';
+        }
+        require "../prevent_login.php";
+        require "../prevent_protocols/prevent_students.php";
+        require "../prevent_protocols/prevent_faculty.php";
+
+        ?>
+        
         
         
 
        
+        <div style="margin: auto;width: 100%; border: 3px solid white; padding: 10px; ">
+            <div id="p" class="easyui-panel" title="Welcome to Course Management System" style="width:100%;height:350px;padding:0px;"
+            data-options="iconCls:'icon-tip',collapsible:true,minimizable:false,maximizable:false,closable:false">
+             
+             <?php
+             $role = $_SESSION['role'];
+             $loggedin_name = $_SESSION['uid'];
+             if($role=='admin')
+             {
+                 $user_role = 'ADMIN';
+             }
+             
+             ?>
 
-        <table id="dg" title="All Students" class="easyui-datagrid" style="width:100%;height:100%;"
+
+             <p style="padding-left: 5px;"><b>Logged in as :</b> <?php echo $user_role?> </p>
+             <p style="padding-left: 5px;"><b>Logged in Name :</b> <?php echo $loggedin_name?>  </p>
+             &nbsp;&nbsp;<a href="../admindashboard.php" class="easyui-linkbutton" iconCls="icon-back">Back</a> 
+              
+             <div id="p" class="easyui-panel" title="Batch Selected <?php echo $_SESSION['course_code'] ?>" style="width:99%;height:200px;padding:0px;align-self: center;"
+             data-options="iconCls:'icon-tip',collapsible:true,minimizable:false,maximizable:false,closable:false">
+               <p style="font-size:14px; text-align: center;"><b>Select Options from the below to perform actions on the batch <?php echo $_SESSION['course_code'] ?></b></p>
+                    <div style="padding:5px;background:#fafafa;width:50%;border:1px solid #ccc; text-align: center;margin: 0 auto;">
+                        
+                        <a href="../admin_dashboard/generate_rollsheet.php" class="easyui-linkbutton" iconCls="icon-print" style="font-size: 30%;padding: 06px 18px;">Print Rollsheet</a>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Semester Registration</a>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" style="font-size: 30%;padding: 06px 18px;">Class Routine Entry</a>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Assign Class Tests to Teachers</a>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-tip" style="font-size: 30%;padding: 06px 18px;">Full Student Details</a>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" style="font-size: 30%;padding: 06px 18px;">Refresh</a>
+                        
+                        
+                        
+                    </div>
+             
+            
+             </div>
+
+
+
+            </div>
+        <br>
+        <table id="dg" title="All Students of the Selected Batch" class="easyui-datagrid" style="width:100%;height:auto;"
                 url="../admin_dashboard/get_users.php" 
                 toolbar="#toolbar" pagination="true"
-                rownumbers="true" fitColumns="true" singleSelect="true">
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
             <thead>
                 <tr>
                     <th field="roll_no" width="50">Roll no</th>
@@ -53,6 +114,7 @@
         <div id="dlg-buttons">
             <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        </div>
         </div>
         <script type="text/javascript">
             var url;
