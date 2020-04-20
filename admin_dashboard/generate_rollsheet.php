@@ -33,8 +33,19 @@ function Header()
     $this->Ln(5);
     $this->Cell(78);
     $this->Cell(33,10,'Attendance cum Roll Sheet',0,0,'C');
+    
+    $this->Ln(10);
+    $this->Cell(1);
+
+    $result = mysqli_query($conn, "SELECT * FROM batch_info WHERE course_code='$course_code'");
+    while($row = mysqli_fetch_assoc($result))
+      {
+          
+          $this->Cell(34,10,'BATCH : '.$row['course_name'].' '.$row['start_year'].' '.'to'.' '.$row['end_year'].' '.'batch',0,0,'L');
+    }
+
     // Line break
-    $this->Ln(20);
+    $this->Ln(13);
     
     
     
@@ -57,14 +68,19 @@ function headerTable()
 {
   $this->SetFont('Arial','B',10);
   $this->Cell(35,06,'Roll No',1,0,'C');
-  $this->Cell(60,06,'Name',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
-  $this->Cell(13,06,'',1,0,'C');
+  $this->Cell(65,06,'Name',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
+  $this->Cell(07,06,'',1,0,'C');
   $this->Ln();
 
 
@@ -79,14 +95,19 @@ function ViewData()
     {
         $this->SetFont('Arial','',10);
         $this->Cell(35,06,$row['roll_no'],1,0,'L');
-        $this->Cell(60,06,$row['Full_name'],1,0,'L');
-        $this->Cell(13,06,'',1,0,'C');
-        $this->Cell(13,06,'',1,0,'C');
-        $this->Cell(13,06,'',1,0,'C');
-        $this->Cell(13,06,'',1,0,'C');
-        $this->Cell(13,06,'',1,0,'C');
-        $this->Cell(13,06,'',1,0,'C');
-        $this->Cell(13,06,'',1,0,'C');
+        $this->Cell(65,06,$row['Full_name'],1,0,'L');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
+        $this->Cell(07,06,'',1,0,'C');
         $this->Ln();          
           
     }
