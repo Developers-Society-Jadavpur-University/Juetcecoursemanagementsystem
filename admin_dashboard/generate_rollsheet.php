@@ -60,7 +60,7 @@ function Footer()
     $this->SetY(-15);
     // Arial italic 8
     $this->SetFont('Arial','I',8);
-    $this->Cell(50,10,'Generated from Course management system',0,0,'C');
+    $this->Cell(50,10,'Generated from Course management system on '.date("d-m-Y").'',0,0,'C');
     // Page number
     $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'R');
 }
