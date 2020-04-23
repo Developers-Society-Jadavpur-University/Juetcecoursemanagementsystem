@@ -101,7 +101,8 @@
                    <div style="margin-bottom:10px">
                       <!--<input name="faculty" class="easyui-textbox" required="true" label="Faculty" style="width:60%">-->
                       <select  name="faculty" class="easyui-combobox" required="true" label="Faculty" style="width:60%;">
-                      <option value="Faculty of Engineering and Technology">Faculty of Engineering and Technology</option>
+                      
+                         <option value="Faculty of Engineering and Technology">Faculty of Engineering and Technology</option>
                       </select>
                    </div>
                 </form>

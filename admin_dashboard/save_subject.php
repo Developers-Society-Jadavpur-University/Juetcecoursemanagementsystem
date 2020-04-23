@@ -12,7 +12,7 @@ $faculty = htmlspecialchars($_REQUEST['faculty']);
 
 include '../includes/dbh.inc.php';
 
-$sql = "INSERT INTO subject_info(sub_code,sub_name,year,sem,paper_type,sub_type,dept,faculty,status_sub) values('$sub_code','$sub_name','$year','$sem','$paper_type','$sub_type','$dept','$department','1')";
+$sql = "INSERT INTO subject_info(sub_code,sub_name,year,sem,paper_type,sub_type,dept,faculty,status_sub) values('$sub_code','$sub_name','$year','$sem','$paper_type','$sub_type','$dept','$faculty','1')";
 mysqli_query($conn,$sql);
 echo json_encode(array(
     
