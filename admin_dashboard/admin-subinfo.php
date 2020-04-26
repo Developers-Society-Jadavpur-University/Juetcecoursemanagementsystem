@@ -48,14 +48,14 @@
                  <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
                      <h3>Enter Subject Information</h3>
                    <div style="margin-bottom:10px">
-                      <input  name="sub_code" class="easyui-textbox" required="true" label="Code" style="width:30%;">
+                      <input  name="sub_code" class="easyui-textbox" required="true" label="Code" style="width:30%;" >
                    </div>
                    <div style="margin-bottom:10px">
                       <input name="sub_name" class="easyui-textbox" required="true" label="Name" style="width:80%">
                    </div>
                    <div style="margin-bottom:05px">
                       <!--<input name="year" class="easyui-textbox" required="true" label="Year" style="width:30%">-->
-                     <select  name="year" class="easyui-combobox" required="true" label="Year" style="width:30%;">
+                     <select  name="year" class="easyui-combobox" required="true" label="Year" style="width:30%;" data-options="required:true, panelHeight:'150px', editable:false">
                         
                         <option value="1">1st </option>
                         <option value="2">2nd</option>
@@ -65,7 +65,7 @@
                    </div>
                    <div style="margin-bottom:10px">
                       <!--<input name="sem" class="easyui-textbox" required="true" label="Semester" style="width:30%">-->
-                      <select  name="sem" class="easyui-combobox" required="true" label="Semester" style="width:30%;">
+                      <select  name="sem" class="easyui-combobox" required="true" label="Semester" style="width:30%;" data-options="required:true, panelHeight:'100px', editable:false">
                         
                         <option value="1">1st </option>
                         <option value="2">2nd</option>
@@ -74,7 +74,7 @@
                    </div>
                    <div style="margin-bottom:10px">
                     <!--<input name="paper_type" class="easyui-textbox" required="true" label="Paper" style="width:40%">-->
-                    <select  name="paper_type" class="easyui-combobox" required="true" label="Paper" style="width:40%;">
+                    <select  name="paper_type" class="easyui-combobox" required="true" label="Paper" style="width:40%;" data-options="required:true, panelHeight:'100px', editable:false">
                         
                         <option value="Theoritical">Theoritical</option>
                         <option value="Sessional">Sessional</option>
@@ -83,7 +83,7 @@
                    </div>
                    <div style="margin-bottom:10px">
                       <!--<input name="sub_type" class="easyui-textbox" required="true" label="Type" style="width:40%">-->
-                      <select  name="sub_type" class="easyui-combobox" required="true" label="Type" style="width:40%;">
+                      <select  name="sub_type" class="easyui-combobox" required="true" label="Type" style="width:40%;" data-options="required:true, panelHeight:'100px', editable:false">
                         
                         <option value="Compulsory">Compulsory</option>
                         <option value="Optional">Optional</option>
@@ -92,7 +92,7 @@
                    </div>
                    <div style="margin-bottom:10px">
                       <!--<input name="dept" class="easyui-textbox" required="true" label="Department" style="width:60%">-->
-                      <select  name="dept" class="easyui-combobox" required="true" label="Department" style="width:60%;">
+                      <select  name="dept" class="easyui-combobox" required="true" label="Department" style="width:60%;" data-options="required:true, panelHeight:'100px', editable:false">
                         
                         <option value="Electronics and Telecommunication Engineering">Electronics and Telecommunication Engineering</option>
                        
@@ -100,7 +100,7 @@
                    </div>
                    <div style="margin-bottom:10px">
                       <!--<input name="faculty" class="easyui-textbox" required="true" label="Faculty" style="width:60%">-->
-                      <select  name="faculty" class="easyui-combobox" required="true" label="Faculty" style="width:60%;">
+                      <select  name="faculty" class="easyui-combobox" required="true" label="Faculty" style="width:60%;" data-options="required:true, panelHeight:'100px', editable:false">
                       
                          <option value="Faculty of Engineering and Technology">Faculty of Engineering and Technology</option>
                       </select>

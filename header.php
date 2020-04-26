@@ -57,7 +57,7 @@
         <span>
             <ul class="header" style=" background-color: yellow;" >
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
+                <!--<li><a href="about.php">About</a></li>-->
                 <li><a href="archive.php">Archive</a></li>
                 <li><a href="../webmail/index.php">Webmail</a></li>
                 <?php
