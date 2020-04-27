@@ -5,7 +5,7 @@
 	$result = array();
 	// Add this dynamically .
 	session_start();
-	$course_code = $_SESSION['course_code'];
+	$roll_no_student = $_SESSION['roll_no'];
 	//$course_code = 'BETC1923';
 
 	include '../includes/dbh.inc.php';
@@ -13,8 +13,8 @@
 	$rs = mysqli_query($conn,"SELECT COUNT(*) FROM student_userdata");
 	$row = mysqli_fetch_row($rs);
 	$result["total"] = $row[0];
-	$rs = mysqli_query($conn,"SELECT * FROM student_userdata WHERE Course_code='$course_code' LIMIT $offset,$rows");
-	
+	//$rs = mysqli_query($conn,"SELECT roll_no,Full_name,phoneno,email FROM student_userdata WHERE roll_no='$roll_no' LIMIT $offset,$rows");
+	$rs = mysqli_query($conn,"SELECT * FROM student_userdata WHERE roll_no='$roll_no_student' LIMIT $offset,$rows");
 	$items = array();
 	while($row = mysqli_fetch_object($rs)){
 		array_push($items, $row);
