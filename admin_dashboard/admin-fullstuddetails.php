@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>semester action</title>
+        <title>student details</title>
         <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
         <link rel="stylesheet" type="text/css" href="../jquery_ui/css/icon.css">
         <link rel="stylesheet" type="text/css" href="../jquery_ui/css/demo.css">
@@ -136,54 +136,113 @@
         <br>
         <br>
        
-        <div id="p" class="easyui-panel" title="Full Details of the Student" style="width:99%;height:45%;padding:0px;align-self: center;"
+        <div id="p" class="easyui-panel" title="Full Details of the Student" style="width:99%;height:50%;padding:0px;align-self: center;"
              data-options="iconCls:'icon-tip',collapsible:true,minimizable:false,maximizable:false,closable:false">
                <p style="font-size:14px; text-align: center;"><b>Full details of the above student</b></p>
                     <div style="padding:5px;background:#fafafa;width:99%;border:1px solid #ccc;margin: 0 auto;">
         <div class="easyui-tabs" style="width:97%;height:250px">
         <div title="Contact Details" style="padding:10px">
-            <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
-            <ul>
-                <li>easyui is a collection of user-interface plugin based on jQuery.</li>
-                <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
-                <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
-                <li>complete framework for HTML5 web page.</li>
-                <li>easyui save your time and scales while developing your products.</li>
-                <li>easyui is very easy but powerful.</li>
-            </ul>
+            <table id="dg" title="Student's Contact Details" class="easyui-datagrid" style="width:70%;height:auto;"
+                url="../admin_dashboard/fullstud-get_contactdetails.php" 
+                toolbar="#toolbar" pagination="true"
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
+            <thead>
+                <tr>
+                    <th field="roll_no" width="50">Roll no</th>
+                    <th field="Full_name" width="50">Full Name</th>
+                    <th field="phoneno" width="50">Mobile no</th>
+                    <th field="email" width="50">Email</th>
+                </tr>
+            </thead>
+        </table>
+
         </div>
         <div title="Parent Details" style="padding:10px">
-            <ul>
-                <li>easyui is a collection of user-interface plugin based on jQuery.</li>
-                <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
-                <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
-                <li>complete framework for HTML5 web page.</li>
-                <li>easyui save your time and scales while developing your products.</li>
-                <li>easyui is very easy but powerful.</li>
-            </ul>
+        
+        <table id="dg" title="Father's Contact Details" class="easyui-datagrid" style="width:70%;height:auto;"
+                url="../admin_dashboard/fullstud-get_parentdetails.php" 
+                toolbar="#toolbar" pagination="true"
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
+            <thead>
+                <tr>
+                    <th field="fName" width="50">Father's Name</th>
+                    <th field="fContact" width="50">Father's Ph</th>
+                    <th field="fEmail" width="50">Father's Email</th>
+                    <th field="fBloodGrp" width="50">Father's Blood grp</th>
+                    <th field="fOccu" width="50">Father's Ocuupation</th>
+                </tr>
+            </thead>
+        </table>
+        <br>
+        <table id="dg" title="Mother's Contact Details" class="easyui-datagrid" style="width:70%;height:auto;"
+                url="../admin_dashboard/fullstud-get_parentdetails.php" 
+                toolbar="#toolbar" pagination="true"
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
+            <thead>
+                <tr>
+                    <th field="mName" width="50">Mother's Name</th>
+                    <th field="mContact" width="50">Mother's Ph</th>
+                    <th field="mEmail" width="50">Mother's Email</th>
+                    <th field="mBloodGrp" width="50">Mother's Blood grp</th>
+                    <th field="mOccu" width="50">Mother's Ocuupation</th>
+                </tr>
+            </thead>
+        </table>
+        <br>
+        <table id="dg" title="Additional Contact Details" class="easyui-datagrid" style="width:70%;height:auto;"
+                url="../admin_dashboard/fullstud-get_parentdetails.php" 
+                toolbar="#toolbar" pagination="true"
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
+            <thead>
+                <tr>
+                    <th field="parentOfficeAdd" width="70">Parent's Office Address</th>
+                    <th field="parentOfficeTel" width="70">Parent's Office Phone</th>
+                    
+                </tr>
+            </thead>
+        </table>
             
         </div>
         <div title="WBJEE Details" style="padding:10px">
-            <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
-            <ul>
-                <li>easyui is a collection of user-interface plugin based on jQuery.</li>
-                <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
-                <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
-                <li>complete framework for HTML5 web page.</li>
-                <li>easyui save your time and scales while developing your products.</li>
-                <li>easyui is very easy but powerful.</li>
-            </ul>
+        <table id="dg" title="Student's WBJEE Details" class="easyui-datagrid" style="width:70%;height:auto;"
+                url="../admin_dashboard/fullstud-get_medicaldetails.php" 
+                toolbar="#toolbar" pagination="true"
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
+            <thead>
+                <tr>
+                    <th field="wbjeeMaths" width="50">WBJEE Math Score</th>
+                    <th field="wbjeePhyChem" width="50">WBJEE Phy+Chem Score</th>
+                    
+                </tr>
+            </thead>
+        </table>
         </div>
         <div title="Medical Details" style="padding:10px">
-            <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
-            <ul>
-                <li>easyui is a collection of user-interface plugin based on jQuery.</li>
-                <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
-                <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
-                <li>complete framework for HTML5 web page.</li>
-                <li>easyui save your time and scales while developing your products.</li>
-                <li>easyui is very easy but powerful.</li>
-            </ul>
+        <table id="dg" title="Student's Medical Details" class="easyui-datagrid" style="width:70%;height:auto;"
+                url="../admin_dashboard/fullstud-get_medicaldetails.php" 
+                toolbar="#toolbar" pagination="true"
+                rownumbers="true" fitColumns="true" singleSelect="true"
+                data-options="iconCls:'icon-save',collapsible:true,minimizable:false,maximizable:false,closable:false"
+                >
+            <thead>
+                <tr>
+                    <th field="dob" width="50">Date of Birth</th>
+                    <th field="Gender" width="50">Gender</th>
+                    <th field="bloodGrp" width="50">Blood Group</th>
+                    
+                </tr>
+            </thead>
+        </table>
         </div>
         </div>
         </div>
