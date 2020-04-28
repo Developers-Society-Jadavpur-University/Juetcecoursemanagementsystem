@@ -48,19 +48,32 @@
                       <input  name="course_code" class="easyui-textbox" required="true" label="Code" style="width:50%">
                    </div>
                    <div style="margin-bottom:10px">
-                      <input name="course_name" class="easyui-textbox" required="true" label="Name" style="width:80%">
+                      <!--<input name="course_name" class="easyui-textbox" required="true" label="Name" style="width:80%">-->
+                     <select  name="course_name" class="easyui-combobox" required="true" label="Name" style="width:80%;" data-options="required:true, panelHeight:'100px', editable:false">
+                        
+                        <option value="Bachelor of Engineering">Bachelor of Engineering</option>
+                     </select>
                    </div>
                    <div style="margin-bottom:10px">
-                      <input name="department" class="easyui-textbox" required="true" label="Department" style="width:100%">
+                      <!--<input name="department" class="easyui-textbox" required="true" label="Department" style="width:100%">-->
+                      <select  name="department" class="easyui-combobox" required="true" label="Department" style="width:80%;" data-options="required:true, panelHeight:'100px', editable:false">
+                        
+                        <option value="Electronics and Telecommunication Engineering">Electronics and Telecommunication Engineering</option>
+                     </select>
                    </div>
                    <div style="margin-bottom:10px">
-                      <input name="faculty" class="easyui-textbox" required="true" label="Faculty" style="width:100%">
+                      <!--<input name="faculty" class="easyui-textbox" required="true" label="Faculty" style="width:100%">-->
+                      <select  name="faculty" class="easyui-combobox" required="true" label="Faculty" style="width:80%;" data-options="required:true, panelHeight:'100px', editable:false">
+                        
+                        <option value="Faculty of Engineering and Technology">Faculty of Engineering and Technology</option>
+                      </select>
                    </div>
                    <div style="margin-bottom:10px">
-                      <input name="start_year" class="easyui-textbox" required="true" label="Start Year" style="width:50%">
+                      <input name="start_year" class="easyui-textbox" required="true" label="Start Year" style="width:30%" data-options="required:true, editable:true">
+                        
                    </div>
                    <div style="margin-bottom:10px">
-                      <input name="end_year" class="easyui-textbox" required="true" label="End Year" style="width:50%">
+                      <input name="end_year" class="easyui-textbox" required="true" label="End Year" style="width:30%">
                    </div>
                 </form>
                </div>
@@ -76,7 +89,10 @@
             
             
              
-    <script src="../admin_dashboard/admin-seminfo.js"></script>   
+   
+   <script src="../admin_dashboard/admin-seminfo.js"></script>
+   
+    
     </body>
     </html>
 

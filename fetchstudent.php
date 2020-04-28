@@ -92,7 +92,7 @@
             <p> Course Name : <?=$_SESSION["course_name"]?></p>
             <p> Department of <?=$_SESSION["department"]?> ,<?=$_SESSION["faculty"]?></p>
 
-            <h4>If the above details are correct then enter the following and press the click to Register button otherwise contact system administrator.</h4>
+            <h4>If the above details are correct then enter the following and press the Sign Up button otherwise contact system administrator.</h4>
                 
             E-mail:<br><input type = "email" name = "e-mail" ><br><br>
             Enter Password:<br><input type = "password" name = "pwd"><br><br>

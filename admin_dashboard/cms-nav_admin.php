@@ -16,7 +16,8 @@
         
 
 
-        <li><a href="../admindashboard.php" style="color:black;">Batch Info</a></li>  
+        <li><a href="../admindashboard.php" style="color:black;">Batch Info</a></li>
+        <li><a href="../admin_dashboard/admin-subinfopage.php" style="color:black;">Subject Info</a></li>    
         <li><div class="dropdown">
            <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;
            <i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>

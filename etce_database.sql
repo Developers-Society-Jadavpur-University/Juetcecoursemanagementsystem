@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 20, 2020 at 01:33 PM
+-- Generation Time: Apr 23, 2020 at 11:26 PM
 -- Server version: 8.0.19-0ubuntu0.19.10.3
 -- PHP Version: 7.3.11-0ubuntu0.19.10.4
 
@@ -234,6 +234,7 @@ CREATE TABLE `student_userdata` (
 --
 
 INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `phoneno`, `email`, `Course_code`, `reg_status`, `course_name`, `department`, `faculty`) VALUES
+('001810701012', 'TEST CANDIDATE', '789654123', 'test@gmail.com', 'BETC1822', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('001910701012', 'AYAN BISWAS', '8777673298', 'ayanbiswas184@gmail.com', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('001910701013', 'SNEHASHIS BISWAS', '4525452564', 'snehashis@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('001910701014', 'SAGNIK BANERJEE', '8777673564', 'sagnik@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
@@ -265,7 +266,7 @@ CREATE TABLE `stu_notice` (
 --
 
 INSERT INTO `stu_notice` (`notice_id`, `date_time_create`, `date_time_expiry`, `notice`, `file_id`, `notice_visible`, `notice_status`) VALUES
-('etc/1', '2020-04-16 04:17:49', '2020-04-18 00:00:00', 'This is to Notify all the students of Etce UG 1 to complete the registration in the course managament portal', '', 'BETC1923', 'archived'),
+('etc/1', '2020-04-16 04:17:49', '2020-04-21 00:00:00', 'This is to Notify all the students of Etce UG 1 to complete the registration in the course managament portal', '', 'BETC1923', 'archived'),
 ('etc/10', '2020-04-17 19:35:12', '2020-04-18 00:00:00', 'This is the new syllabus', '1', 'BETC1923', 'archived'),
 ('etc/2', '2020-04-17 04:51:22', '2020-04-18 00:00:00', 'This is a test notice ', '', 'ALL', 'archived'),
 ('etc/3', '2020-04-17 05:01:59', '2020-04-18 00:00:00', 'This is second test notice without file and it is archived', '', 'BETC1923', 'archived'),
@@ -275,6 +276,33 @@ INSERT INTO `stu_notice` (`notice_id`, `date_time_create`, `date_time_expiry`, `
 ('etc/7', '2020-04-17 19:13:04', '2020-04-18 00:00:00', 'This is to notify that class will commence from 13/06/19', '', 'STUDENT_ALL,FACULTY_ALL', 'archived'),
 ('etc/8', '2020-04-17 19:15:22', '2020-04-18 00:00:00', 'Test will commence from 10:00 AM', '', 'BETC1923', 'archived'),
 ('etc/9', '2020-04-17 19:34:04', '2020-04-18 00:00:00', 'This is notice regarding syllabus change', '', 'BETC1923', 'archived');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject_info`
+--
+
+CREATE TABLE `subject_info` (
+  `sub_code` varchar(20) NOT NULL,
+  `sub_name` char(60) NOT NULL,
+  `year` int NOT NULL,
+  `sem` int NOT NULL,
+  `paper_type` varchar(20) NOT NULL,
+  `sub_type` varchar(20) NOT NULL,
+  `dept` char(60) NOT NULL,
+  `faculty` char(60) NOT NULL,
+  `status_sub` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `subject_info`
+--
+
+INSERT INTO `subject_info` (`sub_code`, `sub_name`, `year`, `sem`, `paper_type`, `sub_type`, `dept`, `faculty`, `status_sub`) VALUES
+('ET/T/211', 'ELECTROMAGNETIC THEORY', 2, 1, 'Theoritical', 'Compulsory', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 1),
+('ET/T/212', 'NETWORK SYNTHESIS', 2, 1, 'Theoritical', 'Compulsory', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 1),
+('ET/T/214', 'DIGITAL LOGIC CIRCUITS', 2, 1, 'Theoritical', 'Compulsory', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology', 1);
 
 -- --------------------------------------------------------
 
@@ -374,6 +402,12 @@ ALTER TABLE `student_userdata`
 --
 ALTER TABLE `stu_notice`
   ADD PRIMARY KEY (`notice_id`);
+
+--
+-- Indexes for table `subject_info`
+--
+ALTER TABLE `subject_info`
+  ADD PRIMARY KEY (`sub_code`);
 
 --
 -- Indexes for table `users`
