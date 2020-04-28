@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 23, 2020 at 11:26 PM
+-- Generation Time: Apr 29, 2020 at 05:16 AM
 -- Server version: 8.0.19-0ubuntu0.19.10.3
 -- PHP Version: 7.3.11-0ubuntu0.19.10.4
 
@@ -135,6 +135,7 @@ CREATE TABLE `personalDetails` (
   `Stream` text NOT NULL,
   `Gender` tinytext NOT NULL,
   `Category` tinytext NOT NULL,
+  `wbjeeroll` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `wbjeeMaths` decimal(10,2) NOT NULL,
   `wbjeePhyChem` decimal(10,2) NOT NULL,
   `stuEmail` text NOT NULL,
@@ -145,8 +146,9 @@ CREATE TABLE `personalDetails` (
 -- Dumping data for table `personalDetails`
 --
 
-INSERT INTO `personalDetails` (`uname`, `rno`, `dob`, `bloodGrp`, `yJoin`, `yStudy`, `Stream`, `Gender`, `Category`, `wbjeeMaths`, `wbjeePhyChem`, `stuEmail`, `stuContact`) VALUES
-('Arijit Saha', '001910701019', '2001-02-09', 'B', 2019, 'ug1', 'etce', 'Male', 'general', '77.50', '78.00', 'arijitfeb01@gmail.com', '9874981292');
+INSERT INTO `personalDetails` (`uname`, `rno`, `dob`, `bloodGrp`, `yJoin`, `yStudy`, `Stream`, `Gender`, `Category`, `wbjeeroll`, `wbjeeMaths`, `wbjeePhyChem`, `stuEmail`, `stuContact`) VALUES
+('AYAN BISWAS', '001910701012', '2001-12-04', 'O+', 2019, 'ug1', 'etce', 'Male', 'general', NULL, '40.00', '50.00', 'ayanbiswas184@gmail.com', '8777673298'),
+('Arijit Saha', '001910701019', '2001-02-09', 'B', 2019, 'ug1', 'etce', 'Male', 'general', 'WB12145654345', '77.50', '78.00', 'arijitfeb01@gmail.com', '9874981292');
 
 -- --------------------------------------------------------
 
@@ -209,7 +211,7 @@ CREATE TABLE `pwdReset` (
 
 INSERT INTO `pwdReset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdResetToken`, `pwdResetExpires`) VALUES
 (21, 'arijitfeb01@gmail.com', '83c7b7bf169c26de', '$2y$10$7aAaOFL2Q26NzT9W8sY9j.53tsL.VO5WIUysm5ooVByZD18Kp379y', '1586771868'),
-(22, 'ayanbiswas184@gmail.com', '4d7e18256bdd0d52', '$2y$10$OX5s6QRkzDnajtrCYHW7a.JzqQA3SSx1XzveXAxwBQ6dgU/cRcobu', '1586801057');
+(23, 'ayanbiswas184@gmail.com', 'b58e955b551815f1', '$2y$10$J90ZDhi6dRQ5hqN71pEuc.prTI7o1vkWq4.6BRyHlL.P4CUmEvsVW', '1587915974');
 
 -- --------------------------------------------------------
 
@@ -239,7 +241,7 @@ INSERT INTO `student_userdata` (`roll_no`, `Full_name`, `phoneno`, `email`, `Cou
 ('001910701013', 'SNEHASHIS BISWAS', '4525452564', 'snehashis@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('001910701014', 'SAGNIK BANERJEE', '8777673564', 'sagnik@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('001910701016', 'ARINDAM MAJEE', '8521623546', 'arindam@gmail.com', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
-('001910701019', 'ARIJIT SAHA ', '2564253257', 'arijit@gmail.com', 'BETC1923', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
+('001910701019', 'ARIJIT SAHA ', '9485215642', 'arijit@gmail.com', 'BETC1923', 'Y', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('001910702012', 'AYAN TEST', '9474828561', 'ayantest@gmail.com', 'METC1921', 'N', 'Master of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
 ('002010701011', 'AYAN BISWAS', '8777673297', 'ayan20@gmail.com', '', 'N', '', '', ''),
 ('002010701012', 'SAMPARK BISWAS', '5212521254', 'sampark@gmail.com', 'BETC2024', 'N', 'Bachelor of Engineering', 'Electronics and Telecommunication Engineering', 'Faculty of Engineering and Technology'),
@@ -325,7 +327,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uname`, `rno`, `email`, `pwd`, `update_status1`, `update_status2`, `update_status3`) VALUES
-('AYAN BISWAS', '001910701012', 'ayanbiswas184@gmail.com', '$2y$10$M1OsU7Qqd/OmGN5iH.Ni5.gw2OXdLUGbQ1LhIK2qMlLRq6Ir5K7fq', 0, 0, 0),
+('AYAN BISWAS', '001910701012', 'ayanbiswas184@gmail.com', '$2y$10$M1OsU7Qqd/OmGN5iH.Ni5.gw2OXdLUGbQ1LhIK2qMlLRq6Ir5K7fq', 1, 0, 0),
 ('ARINDAM MAJEE', '001910701016', 'arindam@gmail.com', '$2y$10$CUozVbOJv41VPcD74srqK.WlJVeulP5MwXMVWirWw2a9jYHqJVBLW', 0, 0, 0),
 ('Arijit Saha', '001910701019', 'arijitfeb01@gmail.com', '$2y$10$Yo9OnitJgHHmssE04OD4l.C3AabK8NUIku7jzwehzUsvCONdqwSky', 1, 1, 1);
 
@@ -435,7 +437,7 @@ ALTER TABLE `profileimg`
 -- AUTO_INCREMENT for table `pwdReset`
 --
 ALTER TABLE `pwdReset`
-  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
