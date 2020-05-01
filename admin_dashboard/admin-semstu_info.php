@@ -58,7 +58,7 @@
                         <a href="../admin_dashboard/generate_rollsheet.php" class="easyui-linkbutton" iconCls="icon-print" style="font-size: 30%;padding: 06px 18px;">Print Rollsheet</a>
                         <a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Semester Registration</a>
                         <a href="#" class="easyui-linkbutton" iconCls="icon-edit" style="font-size: 30%;padding: 06px 18px;">Class Routine Entry</a>
-                        <a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Assign Class Tests to Teachers</a>
+                       <!--<a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Assign Class Tests to Teachers</a>-->
                         <!--<a href="#" class="easyui-linkbutton" iconCls="icon-tip" style="font-size: 30%;padding: 06px 18px;">Full Student Details</a>-->
                         <a href="#" class="easyui-linkbutton" iconCls="icon-reload" style="font-size: 30%;padding: 06px 18px;">Refresh</a>
                         
@@ -175,7 +175,7 @@
 
             var row = $('#dg').datagrid('getSelected');
               if (row){
-                 $.messager.confirm('Confirm','Are you sure to perform more action on this batch ?',function(r){
+                 $.messager.confirm('Confirm','Are you sure to see the Full details of the student ?',function(r){
                 if (r){
                         $.post('../admin_dashboard/admin-fullstuddetails_action.php',{id:row.roll_no},function(result){
                       if (result.success){
