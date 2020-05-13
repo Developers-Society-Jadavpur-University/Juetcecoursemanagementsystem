@@ -358,16 +358,17 @@ INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
 --
 -- Table structure for table `faculty_contact`
 --
-CREATE TABLE `faculty_contact' ( 
-   `id` INT NOT NULL ,
-   `Faculty_name` TEXT NOT NULL , 
-   `status_name` INT NOT NULL , 
-   `ext` TINYBLOB NOT NULL ,
-   `mobile_no` INT(10) NOT NULL , 
-   `email` VARCHAR(255) NOT NULL , 
-   `phone` INT NOT NULL ,
-   `office_address` VARCHAR(255) NOT NULL ,
-   `bio` MEDIUMTEXT NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `faculty_contact` ( 
+ `id` INT NOT NULL  ,
+ `names` VARCHAR(100) NOT NULL ,
+ `email` VARCHAR(255) NOT NULL ,
+ `mobile_no` VARCHAR(11) NOT NULL ,
+ `phone` VARCHAR(12) NOT NULL ,
+ `office` VARCHAR(100) NOT NULL ,
+ `website` VARCHAR(100) NOT NULL ,
+ `bio` TEXT NOT NULL ,
+ `research_work` TEXT NOT NULL ,
+ `ext` TEXT NOT NULL ) ENGINE = InnoDB;
 --
 -- Dumping data for table `faculty_contact`
 --
@@ -445,6 +446,12 @@ ALTER TABLE `users_staff`
   ADD PRIMARY KEY (`id`);
 
 --
+--Indexes for table `faculty_contact`
+--
+ALTER TABLE `faculty_contact`
+   ADD PRIMARY KEY(`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -460,6 +467,12 @@ ALTER TABLE `profileimg`
 ALTER TABLE `pwdReset`
   MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
+
+--
+-- AUTO_INCREMENT for table `faculty_contact`
+--
+ALTER TABLE `faculty_contact` CHANGE `id` 
+   `id` INT(11) NOT NULL AUTO_INCREMENT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
