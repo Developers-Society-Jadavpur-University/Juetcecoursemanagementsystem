@@ -55,12 +55,7 @@
                <p style="font-size:14px; text-align: center;"><b>Basic details of the student <?php echo $_SESSION['roll_no'] ?></b></p>
                     <div style="padding:5px;background:#fafafa;width:80%;border:1px solid #ccc;margin: 0 auto;">
                         
-                        <!--<a href="../admin_dashboard/generate_rollsheet.php" class="easyui-linkbutton" iconCls="icon-print" style="font-size: 30%;padding: 06px 18px;">Print Rollsheet</a>
-                        <a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Semester Registration</a>
-                        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" style="font-size: 30%;padding: 06px 18px;">Class Routine Entry</a>
-                        <a href="#" class="easyui-linkbutton" iconCls="icon-add" style="font-size: 30%;padding: 06px 18px;">Assign Class Tests to Teachers</a>
-                        <a href="#" class="easyui-linkbutton" iconCls="icon-tip" style="font-size: 30%;padding: 06px 18px;">Full Student Details</a>
-                        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" style="font-size: 30%;padding: 06px 18px;">Refresh</a>-->
+                        
                         
                         <?php
                            require "../includes/dbh.inc.php";

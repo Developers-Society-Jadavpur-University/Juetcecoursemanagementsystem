@@ -353,6 +353,28 @@ INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
 (1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG'),
 (2, 'AYAN BISWAS', 'ayanbiswas184@gmail.com', 'faculty', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_contact`
+--
+CREATE TABLE `faculty_contact` ( 
+ `id` INT NOT NULL  ,
+ `names` VARCHAR(100) NOT NULL ,
+ `email` VARCHAR(255) NOT NULL ,
+ `mobile_no` VARCHAR(11) NOT NULL ,
+ `phone` VARCHAR(12) NOT NULL ,
+ `office` VARCHAR(100) NOT NULL ,
+ `website` VARCHAR(100) NOT NULL ,
+ `bio` TEXT NOT NULL ,
+ `research_work` TEXT NOT NULL ,
+ `ext` TEXT NOT NULL ) ENGINE = InnoDB;
+--
+-- Dumping data for table `faculty_contact`
+--
+
+
+
 --
 -- Indexes for dumped tables
 --
@@ -424,6 +446,12 @@ ALTER TABLE `users_staff`
   ADD PRIMARY KEY (`id`);
 
 --
+--Indexes for table `faculty_contact`
+--
+ALTER TABLE `faculty_contact`
+   ADD PRIMARY KEY(`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -439,6 +467,12 @@ ALTER TABLE `profileimg`
 ALTER TABLE `pwdReset`
   MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
+
+--
+-- AUTO_INCREMENT for table `faculty_contact`
+--
+ALTER TABLE `faculty_contact` CHANGE `id` 
+   `id` INT(11) NOT NULL AUTO_INCREMENT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -16,8 +16,19 @@
         
 
 
-        <li><a href="../admindashboard.php" style="color:black;">Batch Info</a></li>
-        <li><a href="../admin_dashboard/admin-subinfopage.php" style="color:black;">Subject Info</a></li>    
+        <li><div class="dropdown">
+           <button id="prof_menu" onclick="dropdownfunction_academic()" class="dropbtn">Academic Action &nbsp;
+           <i onclick="dropdownfunction_academic()" class="arrow down-arrow"></i></button>
+          <div id="myDropdown_academic" class="dropdown-content myDropdown">
+           <a href="../admindashboard.php">Batch Info</a>
+
+           <a href="../admin_dashboard/admin-subinfopage.php">Subject Info</a>
+           
+          
+          </div>
+         </div>
+        </li>
+        
         <li><div class="dropdown">
            <button id="prof_menu" onclick="dropdownfunction()" class="dropbtn">Notice Update &nbsp;
            <i onclick="dropdownfunction()" class="arrow down-arrow"></i></button>
@@ -30,28 +41,19 @@
           </div>
          </div>
         </li>
-        
-        <!--<li><div class="dropdown">
-             <button id="sem_menu" onclick="dropdownfunction_semester()" class="dropbtn">Semester Info &nbsp;<i onclick="dropdownfunction_semester()" class="arrow down-arrow"></i></button>
-            <div id="myDropdown_semester" class="dropdown-content">
-             <a href="#">Semester Registration</a>
-             <a href="#">Class Routine</a>
-             <a href="#">Class Test Schedule</a>
-             <a href="#">Class Test Results</a>
-             
-            </div>
-           </div>
-        </li>
         <li><div class="dropdown">
-             <button id="notice_menu" onclick="dropdownfunction_notice()" class="dropbtn">Announcements &nbsp;<i onclick="dropdownfunction_notice()" class="arrow down-arrow"></i></button>
-            <div id="myDropdown_notice" class="dropdown-content">
-             <a href="../dashboard.php">Active Notices</a>
-             <a href="#">Archived Notices</a>
-             
-             
-            </div>
-           </div>
-        </li>-->
+           <button id="prof_menu" onclick="dropdownfunction_users()" class="dropbtn">User Action &nbsp;
+           <i onclick="dropdownfunction_users()" class="arrow down-arrow"></i></button>
+          <div id="myDropdown_users" class="dropdown-content myDropdown">
+           <a href="#">Create Faculty</a>
+
+           
+          
+          </div>
+         </div>
+        </li>
+        
+        
     </ul>
 
 <script>
@@ -60,13 +62,13 @@ toggle between hiding and showing the dropdown content */
 function dropdownfunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-// function dropdownfunction_semester() {
-//     document.getElementById("myDropdown_semester").classList.toggle("show");
-// }
-// function dropdownfunction_notice() {
-//     document.getElementById("myDropdown_notice").classList.toggle("show");
-// }
-// Close the dropdown if the user clicks outside of it
+function dropdownfunction_academic() {
+  document.getElementById("myDropdown_academic").classList.toggle("show");
+}
+function dropdownfunction_users() {
+  document.getElementById("myDropdown_users").classList.toggle("show");
+}
+
 window.onclick = function(event) {
   if (!event.target.matches('#prof_menu')) {
     var dropdowns = document.getElementsByClassName("myDropdown");
