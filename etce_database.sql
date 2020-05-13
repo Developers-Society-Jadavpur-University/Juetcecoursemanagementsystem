@@ -353,6 +353,27 @@ INSERT INTO `users_staff` (`id`, `uname`, `email`, `staff_role`, `pwd`) VALUES
 (1, 'Arijit Saha', 'arijitfeb01@gmail.com', 'admin', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG'),
 (2, 'AYAN BISWAS', 'ayanbiswas184@gmail.com', 'faculty', '$2y$10$wkdyI6AVykKnKyQqsTvv3eJ5.GCDUlosgRTu4szrZe5VBMdo4HhcG');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_contact`
+--
+CREATE TABLE `faculty_contact' ( 
+   `id` INT NOT NULL ,
+   `Faculty_name` TEXT NOT NULL , 
+   `status_name` INT NOT NULL , 
+   `ext` TINYBLOB NOT NULL ,
+   `mobile_no` INT(10) NOT NULL , 
+   `email` VARCHAR(255) NOT NULL , 
+   `phone` INT NOT NULL ,
+   `office_address` VARCHAR(255) NOT NULL ,
+   `bio` MEDIUMTEXT NOT NULL ) ENGINE = InnoDB;
+--
+-- Dumping data for table `faculty_contact`
+--
+
+
+
 --
 -- Indexes for dumped tables
 --
